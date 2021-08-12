@@ -1,9 +1,9 @@
 #pragma once
 
-#include <SFML/Graphics.hpp>
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
+#include "Player.h"
 
 using namespace sf;
 
@@ -15,12 +15,14 @@ private:
 	RenderWindow* window;
 	VideoMode videoMode;
 	Event ev;
+	Player* player;
 
 
 	// Methods
 
 	void initVariables();
 	void initWindow();
+	void initPlayer();
 
 public:
 
@@ -33,6 +35,10 @@ public:
 
 	// Methods
 	void pollEvents();
+	void updatePlayerMovement();
+	void movePlayer();
+	void boundPlayer();
+
 	void update();
 	void render();
 };
