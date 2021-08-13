@@ -4,6 +4,8 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.h"
+#include "Background.h"
+#include "TextureMap.h"
 
 using namespace sf;
 
@@ -16,12 +18,14 @@ private:
 	VideoMode videoMode;
 	Event ev;
 	Player* player;
+	Background* background;
 
 
 	// Methods
 
 	void initVariables();
 	void initWindow();
+	void initBackground();
 	void initPlayer();
 
 public:
