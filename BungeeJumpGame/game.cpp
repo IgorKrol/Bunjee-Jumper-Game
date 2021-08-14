@@ -64,6 +64,10 @@ void Game::pollEvents()
 		case Event::Closed():
 			window->close();
 			break;
+		case Event::KeyPressed:
+			if (ev.Event::key.code == Keyboard::Escape)
+				window->close();
+			break;
 		}
 	}
 }

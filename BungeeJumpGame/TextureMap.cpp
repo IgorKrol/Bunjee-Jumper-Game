@@ -5,8 +5,9 @@ void TextureMap::initTextures()
 {
     loadTexture("Player", "Player.png");
     loadTexture("Sky_Background", "Sky_Background.png");
-    loadTexture("Cloud_1", "Cloud_1.png");
-    loadTexture("Cloud_2", "Cloud_2.png");
+    for (int i = 1; i <= 20; i++) {
+        loadTexture("Cloud_"+to_string(i), "Cloud_"+to_string(i)+".png");
+    }
 }
 
 TextureMap::TextureMap()
