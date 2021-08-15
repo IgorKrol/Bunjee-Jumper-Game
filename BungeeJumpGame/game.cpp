@@ -7,6 +7,7 @@ using namespace sf;
 void Game::initVariables()
 {
 	this->window = nullptr;
+	this->player = nullptr;
 }
 
 // first initilizer for window
@@ -17,6 +18,11 @@ void Game::initWindow()
 
 	this->window = new RenderWindow(videoMode, "Bunjee Game", Style::Default);
 	this->window->setFramerateLimit(60);
+}
+
+void Game::initBackground()
+{
+	background = new Background();
 }
 
 // first player initializer
@@ -34,6 +40,7 @@ Game::Game()
 {
 	initVariables();
 	initWindow();
+	initBackground();
 	initPlayer();
 	trap = new SpinningSawTrap(Vector2f(200, 200));
 }
@@ -58,6 +65,10 @@ void Game::pollEvents()
 		switch (ev.type) {
 		case Event::Closed():
 			window->close();
+			break;
+		case Event::KeyPressed:
+			if (ev.Event::key.code == Keyboard::Escape)
+				window->close();
 			break;
 		}
 	}
@@ -129,6 +140,8 @@ void Game::update()
 void Game::render()
 {
 	window->clear();
+
+	background->render(*window);
 
 	player->render(*window);
 

@@ -28,6 +28,10 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Saw.cpp">
+    <ClCompile Include="Background.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,6 +46,10 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Saw.h">
+    <ClInclude Include="Background.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

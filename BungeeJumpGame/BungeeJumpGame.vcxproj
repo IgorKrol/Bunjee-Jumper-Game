@@ -146,17 +146,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Background.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Saw.cpp" />
     <ClCompile Include="SpinningSawTrap.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="TextureMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Background.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Saw.h" />
     <ClInclude Include="SpinningSawTrap.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="TextureMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

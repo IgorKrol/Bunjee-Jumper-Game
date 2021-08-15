@@ -1,44 +1,42 @@
 #include "Player.h"
+#include "TextureMap.h"
 #include <iostream>
 using namespace std;
 
+//initiate player's texture and shape
 void Player::initSprite()
 {
-	sprite.setTexture(this->texture);
-	sprite.scale(0.2f,0.2f);
+	shape.setTexture(TextureMap::getInstance().getTexture("Player"));
+	shape.scale(0.2f,0.2f);
 }
 
-void Player::initTexture()
-{
-	if (!texture.loadFromFile("Textures/Player.png")) {
-		cout << "ERROR::PLAYER::INITTEXTURE::Loading texture failed" << endl;
-	}
-}
-
+// construct and init main variables for character
 Player::Player()
 {
 	this->movementSpeed = 4.f;
-	initTexture();
 	initSprite();
 }
 
+// destructor 
 Player::~Player()
 {
 }
 
+// returns character position as FloatRect contains sides location and size
 FloatRect Player::getPosition()
 {
-	return sprite.getGlobalBounds();
+	return shape.getGlobalBounds();
 }
 
+// set new position on window for character, from top-left corner
 void Player::setPosition(Vector2f pos)
 {
-	sprite.setPosition(pos);
+	shape.setPosition(pos);
 }
 
 void Player::move(const float dirX, const float dirY)
 {
-	sprite.move(movementSpeed * dirX, movementSpeed * dirY);
+	shape.move(movementSpeed * dirX, movementSpeed * dirY);
 }
 
 void Player::update()
@@ -47,5 +45,5 @@ void Player::update()
 
 void Player::render(RenderTarget& target)
 {
-	target.draw(this->sprite);
+	target.draw(this->shape);
 }
