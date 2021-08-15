@@ -26,6 +26,7 @@ void Game::initPlayer()
 }
 
 
+
 //public
 
 //ctor dtor
@@ -34,7 +35,7 @@ Game::Game()
 	initVariables();
 	initWindow();
 	initPlayer();
-
+	trap = new SpinningSawTrap(Vector2f(200, 200));
 }
 
 Game::~Game()
@@ -130,6 +131,8 @@ void Game::render()
 	window->clear();
 
 	player->render(*window);
+
+	trap->render(*window);
 
 	window->display();
 }

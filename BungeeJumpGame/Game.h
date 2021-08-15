@@ -4,6 +4,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.h"
+#include "SpinningSawTrap.h"
 
 using namespace sf;
 
@@ -16,6 +17,7 @@ private:
 	VideoMode videoMode;
 	Event ev;
 	Player* player;
+	SpinningSawTrap* trap;
 
 
 	// Methods
