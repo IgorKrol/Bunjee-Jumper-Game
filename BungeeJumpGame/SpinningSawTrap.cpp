@@ -12,6 +12,7 @@ SpinningSawTrap::SpinningSawTrap(Vector2f possition, Color sawFirstColor, Color 
 
 SpinningSawTrap::~SpinningSawTrap()
 {
+
 }
 
  void SpinningSawTrap::initBase(int x, int y)

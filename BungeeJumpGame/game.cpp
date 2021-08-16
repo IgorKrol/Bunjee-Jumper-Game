@@ -49,6 +49,7 @@ Game::~Game()
 {
 	delete this->window;
 	delete this->player;
+
 }
 
 

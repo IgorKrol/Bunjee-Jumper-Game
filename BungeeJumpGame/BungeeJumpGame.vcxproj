@@ -146,6 +146,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AbstractTrap.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="main.cpp" />
@@ -155,6 +156,7 @@
     <ClCompile Include="TextureMap.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AbstractTrap.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Saw.h" />

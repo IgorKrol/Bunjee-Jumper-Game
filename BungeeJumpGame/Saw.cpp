@@ -10,6 +10,7 @@ Saw::Saw(Vector2f position, Color firstColor, Color secondColor, Color thirdColo
 
 Saw::~Saw()
 {
+
 }
 
 void Saw::initSaw(int x, int y, Color firstColor, Color secondColor, Color thirdColor)
