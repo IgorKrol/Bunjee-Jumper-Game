@@ -1,4 +1,3 @@
-
 #include "Game.h"
 
 using namespace sf;
@@ -42,7 +41,8 @@ Game::Game()
 	initWindow();
 	initBackground();
 	initPlayer();
-	trap = new SpinningSawTrap(Vector2f(200, 200));
+	
+	trap = new SpinningSawTrap(Vector2f(200, 200), sf::Color::Red, sf::Color::Blue, sf::Color::Green);
 }
 
 Game::~Game()
@@ -145,7 +145,7 @@ void Game::render()
 
 	player->render(*window);
 
-	trap->render(*window);
+	trap->render(*window, sf::Color::Red, sf::Color::Blue, sf::Color::Green);
 
 	window->display();
 }
