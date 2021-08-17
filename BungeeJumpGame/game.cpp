@@ -1,4 +1,5 @@
 #include "Game.h"
+#include <iostream>
 
 using namespace sf;
 
@@ -105,24 +106,29 @@ void Game::movePlayer()
 // correct collisions with window
 void Game::boundPlayer()
 {
-	FloatRect playerPos = player->getPosition();
-	Vector2f newPos = Vector2f(playerPos.left, playerPos.top);
+	Vector2f playerPos = player->getPosition();
 	auto windowSize = window->getSize();
+	Vector2f newPos = Vector2f(playerPos.x, playerPos.y);
+
+	// correction from origin center point to shape's bounds
+	auto correctX = player->getSize().x / 2;
+	auto correctY = player->getSize().y / 2;
+
 	//left
-	if (playerPos.left < 0) {
-		newPos.x = 0.f;
+	if (playerPos.x < 0 + correctX) {
+		newPos.x = 0.f + correctX;
 	}
 	//right
-	else if (playerPos.left + playerPos.width > windowSize.x) {
-		newPos.x = windowSize.x - playerPos.width;
+	else if (playerPos.x > windowSize.x - correctX) {
+		newPos.x = windowSize.x - correctX;
 	}
 	//top
-	if (playerPos.top < 0) {
-		newPos.y = 0.f;
+	if (playerPos.y < 0 + correctY) {
+		newPos.y = 0.f + correctY;
 	}
 	//bottom
-	else if (playerPos.top + playerPos.height > windowSize.y) {
-		newPos.y = windowSize.y - playerPos.height;
+	else if (playerPos.y > windowSize.y - correctY) {
+		newPos.y = windowSize.y - correctY;
 	}
 	player->setPosition(newPos);
 

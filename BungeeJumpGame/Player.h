@@ -18,7 +18,9 @@ public:
 	virtual ~Player();
 
 	// returns character position as FloatRect contains sides location and size
-	FloatRect getPosition();
+	Vector2f getPosition();
+
+	Vector2f getSize();
 
 	// set new position on window for character, from top-left corner
 	void setPosition(Vector2f pos);

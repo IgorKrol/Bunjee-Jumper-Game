@@ -7,6 +7,10 @@ using namespace std;
 void Player::initSprite()
 {
 	shape.setTexture(TextureMap::getInstance().getTexture("Player"));
+	shape.setOrigin(
+		(shape.getGlobalBounds().width) / 2.f,
+		(shape.getGlobalBounds().height / 2.f));
+	shape.setPosition(400, 300);
 	shape.scale(0.2f,0.2f);
 }
 
@@ -23,9 +27,15 @@ Player::~Player()
 }
 
 // returns character position as FloatRect contains sides location and size
-FloatRect Player::getPosition()
+Vector2f Player::getPosition()
 {
-	return shape.getGlobalBounds();
+	return shape.getPosition();
+}
+
+Vector2f Player::getSize()
+{
+	auto b = shape.getGlobalBounds();
+	return Vector2f(b.width,b.height);
 }
 
 // set new position on window for character, from top-left corner
