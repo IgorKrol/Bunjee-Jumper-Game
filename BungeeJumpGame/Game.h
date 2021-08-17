@@ -7,6 +7,7 @@
 #include "Background.h"
 #include "TextureMap.h"
 #include "SpinningSawTrap.h"
+#include "Health.h"
 
 using namespace sf;
 
@@ -21,6 +22,7 @@ private:
 	Player* player;
 	Background* background;
 	SpinningSawTrap* trap;
+	Health* playerHealth;
 
 
 	// Methods
@@ -29,6 +31,7 @@ private:
 	void initWindow();
 	void initBackground();
 	void initPlayer();
+	void initHealthBar();
 
 public:
 

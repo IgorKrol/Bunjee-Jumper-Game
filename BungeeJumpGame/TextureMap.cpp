@@ -8,6 +8,7 @@ void TextureMap::initTextures()
     for (int i = 1; i <= 20; i++) {
         loadTexture("Cloud_"+to_string(i), "Cloud_"+to_string(i)+".png");
     }
+    loadTexture("Heart", "Heart.png");
 }
 
 TextureMap::TextureMap()
@@ -31,7 +32,7 @@ Texture& TextureMap::getTexture(string key)
 void TextureMap::loadTexture(string key, string path)
 {
     tMap[key] = new Texture();
-    if (!tMap[key]->loadFromFile("Textures/" + path)) {
+    if (!tMap[key]->loadFromFile("Resourses/Textures/" + path)) {
         std::cout << "ERROR::TEXTUREMAP::LOADTEXTURE::failed to load '" + key + "' texture\n";
     }
 }

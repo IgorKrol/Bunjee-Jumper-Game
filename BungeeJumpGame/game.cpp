@@ -8,6 +8,8 @@ void Game::initVariables()
 {
 	this->window = nullptr;
 	this->player = nullptr;
+	background = nullptr;
+	playerHealth = nullptr;
 }
 
 // first initilizer for window
@@ -31,6 +33,11 @@ void Game::initPlayer()
 	player = new Player();
 }
 
+void Game::initHealthBar()
+{
+	playerHealth = new Health(100);
+}
+
 
 
 //public
@@ -42,6 +49,7 @@ Game::Game()
 	initWindow();
 	initBackground();
 	initPlayer();
+	initHealthBar();
 	
 	trap = new SpinningSawTrap(Vector2f(200, 200), sf::Color::Red, sf::Color::Blue, sf::Color::Green);
 }
@@ -153,6 +161,8 @@ void Game::render()
 	player->render(*window);
 
 	trap->render(*window, sf::Color::Red, sf::Color::Blue, sf::Color::Green);
+
+	playerHealth->render(*window);
 
 	window->display();
 }

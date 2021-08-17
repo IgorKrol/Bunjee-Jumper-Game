@@ -149,6 +149,7 @@
     <ClCompile Include="AbstractTrap.cpp" />
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Health.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Saw.cpp" />
     <ClCompile Include="SpinningSawTrap.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="AbstractTrap.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Game.h" />
+    <ClInclude Include="Health.h" />
     <ClInclude Include="Saw.h" />
     <ClInclude Include="SpinningSawTrap.h" />
     <ClInclude Include="Player.h" />
