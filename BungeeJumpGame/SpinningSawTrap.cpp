@@ -3,35 +3,16 @@
 #include <iostream>
 using namespace std;
 
-SpinningSawTrap::SpinningSawTrap(Vector2f possition, int rotationDegree, int sawRadius, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor)
+SpinningSawTrap::SpinningSawTrap(Vector2f possition, int sawRotationDegree, int baseRotationDegree, int sawRadius,int baseWidth, int baseHeigth, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor, Color baseFirstColor, Color baseSecondColor, Color baseThirdColor, Color baseForthColor)
 {
 	setPosition(possition);
-	initBase(position.x, position.y);
-	saw = new Saw(possition, rotationDegree, sawRadius, sawFirstColor, sawSecondColor, sawThirdColor);
+	saw = new Saw(possition, sawRotationDegree, sawRadius, sawFirstColor, sawSecondColor, sawThirdColor);
+	base = new Base(position,baseRotationDegree, baseWidth, baseHeigth, baseFirstColor, baseSecondColor, baseThirdColor, baseForthColor);
 }
 
 SpinningSawTrap::~SpinningSawTrap()
 {
 
-}
-
- void SpinningSawTrap::initBase(int x, int y)
-{
-	sf::VertexArray rectangle(sf::Quads, 4);
-
-	// define the position of the rectangle's points
-	rectangle[0].position = sf::Vector2f(x - 25.f, y - 25.f);
-	rectangle[1].position = sf::Vector2f(x + 25.f, y - 25.f);
-	rectangle[2].position = sf::Vector2f(x + 25.f, y + 25.f);
-	rectangle[3].position = sf::Vector2f(x - 25.f, y + 25.f);
-
-	// define the color of the rectangle's points
-	rectangle[0].color = sf::Color::Black;
-	rectangle[1].color = sf::Color::Red;
-	rectangle[2].color = sf::Color::Black;
-	rectangle[3].color = sf::Color::Red;
-
-	this->base = rectangle;
 }
 
 void SpinningSawTrap::setPosition(Vector2f position)
@@ -44,6 +25,7 @@ Vector2f SpinningSawTrap::getPosition()
 }
 void SpinningSawTrap::render(RenderTarget& target)
 {
-	target.draw(this->base);
+	
+	this->base->render(target);
 	this->saw->render(target);
 }
