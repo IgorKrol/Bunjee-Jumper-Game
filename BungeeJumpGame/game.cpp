@@ -51,7 +51,7 @@ Game::Game()
 	initPlayer();
 	initHealthBar();
 	
-	trap = new SpinningSawTrap(Vector2f(200, 200), sf::Color::Red, sf::Color::Blue, sf::Color::Green);
+	trap = new SpinningSawTrap(Vector2f(200, 200),10,35, sf::Color::Red, sf::Color::Blue, sf::Color::Green);
 }
 
 Game::~Game()
@@ -160,7 +160,7 @@ void Game::render()
 
 	player->render(*window);
 
-	trap->render(*window, sf::Color::Red, sf::Color::Blue, sf::Color::Green);
+	trap->render(*window);
 
 	playerHealth->render(*window);
 

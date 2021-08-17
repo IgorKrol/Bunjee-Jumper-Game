@@ -3,11 +3,11 @@
 #include <iostream>
 using namespace std;
 
-SpinningSawTrap::SpinningSawTrap(Vector2f possition, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor)
+SpinningSawTrap::SpinningSawTrap(Vector2f possition, int rotationDegree, int sawRadius, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor)
 {
 	setPosition(possition);
 	initBase(position.x, position.y);
-	saw = new Saw(possition, sawFirstColor, sawSecondColor, sawThirdColor);
+	saw = new Saw(possition, rotationDegree, sawRadius, sawFirstColor, sawSecondColor, sawThirdColor);
 }
 
 SpinningSawTrap::~SpinningSawTrap()
@@ -42,9 +42,8 @@ Vector2f SpinningSawTrap::getPosition()
 {
 	return this->position ;
 }
-void SpinningSawTrap::render(RenderTarget& target, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor)
+void SpinningSawTrap::render(RenderTarget& target)
 {
-	
 	target.draw(this->base);
-	this->saw->render(target, 10, sawFirstColor, sawSecondColor, sawThirdColor);
+	this->saw->render(target);
 }

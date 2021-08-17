@@ -6,11 +6,11 @@ using namespace sf;
 
 class SpinningSawTrap 
 {
-public:SpinningSawTrap(Vector2f position, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor);
+public:SpinningSawTrap(Vector2f position, int rotationDegree, int sawRadius, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor);
 	  virtual ~SpinningSawTrap();
 	void setPosition(Vector2f position);
 	Vector2f getPosition();
-	void render(RenderTarget& target, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor);
+	void render(RenderTarget& target);
 
 private: Vector2f position;
 	   sf::VertexArray base;

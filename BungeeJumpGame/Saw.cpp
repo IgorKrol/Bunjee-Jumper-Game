@@ -2,10 +2,11 @@
 #include <iostream>
 using namespace std;
 
-Saw::Saw(Vector2f position, Color firstColor, Color secondColor, Color thirdColor)
+Saw::Saw(Vector2f position, int rotationDegree, int radius, Color firstColor, Color secondColor, Color thirdColor)
 {
 	setPosition(position);
-	initSaw(position.x, position.y, firstColor, secondColor, thirdColor);
+	initSaw(position.x, position.y, radius, firstColor, secondColor, thirdColor);
+	setRotationDegree(rotationDegree);
 }
 
 Saw::~Saw()
@@ -13,9 +14,10 @@ Saw::~Saw()
 
 }
 
-void Saw::initSaw(int x, int y, Color firstColor, Color secondColor, Color thirdColor)
+void Saw::initSaw(int x, int y, int radius1, Color firstColor, Color secondColor, Color thirdColor)
 {
-	int radius = 35;
+	int radius = radius1;
+	setColors(firstColor, secondColor, thirdColor);
 	VertexArray uprightTriangle(sf::Triangles, 3);
 
 
@@ -25,7 +27,7 @@ void Saw::initSaw(int x, int y, Color firstColor, Color secondColor, Color third
 	uprightTriangle[2].position = sf::Vector2f(x + (0 * radius), y + (1 * radius));
 
 	// define the color of the uprightTriangle's points
-	uprightTriangle = colourAsignment(uprightTriangle, firstColor, secondColor, thirdColor);
+	uprightTriangle = colourAsignment(uprightTriangle);
 
 	VertexArray dowrightTriangle(sf::Triangles, 3);
 
@@ -35,7 +37,7 @@ void Saw::initSaw(int x, int y, Color firstColor, Color secondColor, Color third
 	dowrightTriangle[2].position = sf::Vector2f(x + (0 * radius), y - (1 * radius));
 
 	// define the color of the dowrightTriangle's points
-	dowrightTriangle = colourAsignment(dowrightTriangle, firstColor, secondColor, thirdColor);
+	dowrightTriangle = colourAsignment(dowrightTriangle);
 
 	VertexArray* unifiedTriangles = new VertexArray[2];
 	unifiedTriangles[0] = uprightTriangle;
@@ -44,11 +46,13 @@ void Saw::initSaw(int x, int y, Color firstColor, Color secondColor, Color third
 	this->saw = unifiedTriangles;
 }
 
-VertexArray  Saw::colourAsignment(VertexArray triangleShape, Color firstColor, Color secondColor, Color thirdColor)
+VertexArray  Saw::colourAsignment(VertexArray triangleShape)
 {
-	triangleShape[0].color = firstColor;
-	triangleShape[1].color = secondColor;
-	triangleShape[2].color = thirdColor;
+	Color* colors = getColors();
+	for (int i = 0; i < 3; i++)
+	{
+		triangleShape[i].color = colors[i];
+	}
 	return triangleShape;
 }
 
@@ -56,30 +60,42 @@ void Saw::setPosition(Vector2f position)
 {
 	this->position = position;
 }
+
 Vector2f Saw::getPosition()
 {
 	return this->position;
 }
 
-void Saw::render(RenderTarget& target, int rotationDegree, Color firstColor, Color secondColor, Color thirdColor)
+void Saw::setColors(Color firstColor, Color secondColor, Color thirdColor)
 {
+	
+	this->colors[0] = firstColor;
+	this->colors[1] = secondColor;
+	this->colors[2] = thirdColor;
+}
+
+Color* Saw::getColors()
+{
+	return this->colors;
+}
+
+void Saw::setRotationDegree(int rotationDegree)
+{
+	this->rotationDegree = rotationDegree;
+}
+
+int Saw::getRotationDegree()
+{
+	return this->rotationDegree;
+}
+
+void Saw::render(RenderTarget& target)
+{
+	int rotationDegree = getRotationDegree();
 	sf::Transform transform;
 	transform.rotate(rotationDegree, this->getPosition());
 	target.draw(this->saw[0], transform);
 	target.draw(this->saw[1], transform);
-
-	//saw[0][0] = transform.transformPoint(saw[0][0].position);
-	//saw[0][0].color = saw[0][0].color= sf::Color::Red;
-	//saw[0][1] = transform.transformPoint(saw[0][1].position);
-	//saw[0][1].color = saw[0][1].color = sf::Color::Blue;
-	//saw[0][2] = transform.transformPoint(saw[0][2].position);
-	//saw[0][2].color = saw[0][2].color = sf::Color::Green;
-	//saw[1][0] = transform.transformPoint(saw[1][0].position);
-	//saw[1][0].color = saw[1][0].color = sf::Color::Red;
-	//saw[1][1] = transform.transformPoint(saw[1][1].position);
-	//saw[1][1].color = saw[1][1].color = sf::Color::Blue;
-	//saw[1][2] = transform.transformPoint(saw[1][2].position);
-	//saw[1][2].color = saw[1][2].color = sf::Color::Green;
 	for (int i = 0; i <= 1; i++)
 	{
 		for (int j = 0; j <= 2; j++)
@@ -87,6 +103,6 @@ void Saw::render(RenderTarget& target, int rotationDegree, Color firstColor, Col
 			saw[i][j] = transform.transformPoint(saw[i][j].position);
 		}
 	}
-	saw[0] = colourAsignment(saw[0], firstColor, secondColor, thirdColor);
-	saw[1] = colourAsignment(saw[1], firstColor, secondColor, thirdColor);
+	saw[0] = colourAsignment(saw[0]);
+	saw[1] = colourAsignment(saw[1]);
 }
