@@ -11,6 +11,8 @@ public:
 	void setRotationDegree(int rotationDegree);
 	int getRotationDegree();
 	Vector2f getPosition();
+	void setRadius(int radius);
+	int getRadius();
 	void render(RenderTarget& target);
 
 private: 
@@ -18,10 +20,12 @@ private:
 	Vector2f position;
 	Color colors[3];
 	int rotationDegree;
+	int radius;
 	void setColors(Color firstColor, Color secondColor, Color thirdColor);
 	Color* getColors();
 	void initSaw(int x, int y, int radius, Color firstColor, Color secondColor, Color thirdColor);
 	VertexArray colourAsignment(VertexArray triangleShape);
+	
 };
 	  
 

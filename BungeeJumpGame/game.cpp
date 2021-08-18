@@ -51,7 +51,7 @@ Game::Game()
 	initPlayer();
 	initHealthBar();
 	
-	trap = new SpinningSawTrap(Vector2f(200, 200),10,0,35,50,50, sf::Color::Red, sf::Color::Blue, sf::Color::Green, sf::Color::Red, sf::Color::Black, sf::Color::Red, sf::Color::Black);
+	trap = new SpinningSawTrap(Vector2f(200, 200),10,0,40,50,50, sf::Color::Red, sf::Color::Blue, sf::Color::Green, sf::Color::Red, sf::Color::Black, sf::Color::Red, sf::Color::Black);
 }
 
 Game::~Game()

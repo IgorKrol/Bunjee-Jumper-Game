@@ -9,10 +9,10 @@ Base::Base(Vector2f position, int rotationDegree, int width, int height, Color f
 	setRotationDegree(rotationDegree);
 }
 
-void Base::initBase(int x, int y, int width1, int height1, Color firstColor, Color secondColor, Color thirdColor, Color forthColor)
+void Base::initBase(int x, int y, int width, int height, Color firstColor, Color secondColor, Color thirdColor, Color forthColor)
 {
-	int height = height1;
-	int width = width1;
+	setHeight(height);
+	setWidth(width);
 	setColors(firstColor, secondColor, thirdColor, forthColor);
 	sf::VertexArray rectangle(sf::Quads, 4);
 
@@ -46,6 +46,24 @@ void Base::setPosition(Vector2f position)
 Vector2f Base::getPosition()
 {
 	return this->position;
+}
+void Base::setHeight(int height)
+{
+	this->height = height;
+}
+
+int Base::getHeight()
+{
+	return this->height;
+}
+void Base::setWidth(int width)
+{
+	this->width = width;
+}
+
+int Base::getWidth()
+{
+	return this->width;
 }
 
 void Base::setColors(Color firstColor, Color secondColor, Color thirdColor, Color forthColor)

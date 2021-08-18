@@ -14,9 +14,9 @@ Saw::~Saw()
 
 }
 
-void Saw::initSaw(int x, int y, int radius1, Color firstColor, Color secondColor, Color thirdColor)
+void Saw::initSaw(int x, int y, int radius, Color firstColor, Color secondColor, Color thirdColor)
 {
-	int radius = radius1;
+	setRadius(radius);
 	setColors(firstColor, secondColor, thirdColor);
 	VertexArray uprightTriangle(sf::Triangles, 3);
 
@@ -54,6 +54,15 @@ VertexArray  Saw::colourAsignment(VertexArray triangleShape)
 		triangleShape[i].color = colors[i];
 	}
 	return triangleShape;
+}
+void Saw::setRadius(int radius)
+{
+	this->radius = radius;
+}
+
+int Saw::getRadius()
+{
+	return this->radius;
 }
 
 void Saw::setPosition(Vector2f position)

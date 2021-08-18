@@ -11,6 +11,7 @@ public:SpinningSawTrap(Vector2f possition, int sawRotationDegree, int baseRotati
 	  virtual ~SpinningSawTrap();
 	void setPosition(Vector2f position);
 	Vector2f getPosition();
+	Vector2f* getTrapDimensions();
 	void render(RenderTarget& target);
 
 private: Vector2f position;
