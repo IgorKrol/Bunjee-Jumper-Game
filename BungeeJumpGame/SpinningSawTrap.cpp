@@ -1,13 +1,12 @@
 #include "SpinningSawTrap.h"
-#include "Saw.h"
 #include <iostream>
 using namespace std;
 
-SpinningSawTrap::SpinningSawTrap(Vector2f possition, int sawRotationDegree, int baseRotationDegree, int sawRadius,int baseWidth, int baseHeigth, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor, Color baseFirstColor, Color baseSecondColor, Color baseThirdColor, Color baseForthColor)
+SpinningSawTrap::SpinningSawTrap(Vector2f position, BaseParameters bp, SawParameters sp)
 {
-	setPosition(possition);
-	saw = new Saw(possition, sawRotationDegree, sawRadius, sawFirstColor, sawSecondColor, sawThirdColor);
-	base = new Base(possition,baseRotationDegree, baseWidth, baseHeigth, baseFirstColor, baseSecondColor, baseThirdColor, baseForthColor);
+	setPosition(position);
+	saw = new Saw(position, sp);
+	base = new Base(position, bp);
 }
 
 SpinningSawTrap::~SpinningSawTrap()

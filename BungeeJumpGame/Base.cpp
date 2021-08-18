@@ -1,12 +1,17 @@
 #include "Base.h"
+#include "BaseParameters.h"
 #include <iostream>
 using namespace std;
 
-Base::Base(Vector2f position, int rotationDegree, int width, int height, Color firstColor, Color secondColor, Color thirdColor, Color forthColor)
+Base::Base(Vector2f position, BaseParameters bp)
 {
 	setPosition(position);
-	initBase(position.x, position.y, width, height, firstColor, secondColor, thirdColor, forthColor);
-	setRotationDegree(rotationDegree);
+	initBase(position.x, position.y, bp.baseWidth, bp.baseHeigth, bp.baseFirstColor, bp.baseSecondColor, bp.baseThirdColor, bp.baseFirstColor);
+	setRotationDegree(bp.baseRotationDegree);
+}
+
+Base::~Base()
+{
 }
 
 void Base::initBase(int x, int y, int width, int height, Color firstColor, Color secondColor, Color thirdColor, Color forthColor)

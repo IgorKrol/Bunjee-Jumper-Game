@@ -1,4 +1,6 @@
 #include "Game.h"
+#include "BaseParameters.h"
+#include "SawParameters.h"
 #include <iostream>
 
 using namespace sf;
@@ -50,8 +52,7 @@ Game::Game()
 	initBackground();
 	initPlayer();
 	initHealthBar();
-	
-	trap = new SpinningSawTrap(Vector2f(200, 200),10,0,40,50,50, sf::Color::Red, sf::Color::Blue, sf::Color::Green, sf::Color::Red, sf::Color::Black, sf::Color::Red, sf::Color::Black);
+	trap = new SpinningSawTrap(Vector2f(200, 200), BaseParameters::Default(), SawParameters::Default());
 }
 
 Game::~Game()

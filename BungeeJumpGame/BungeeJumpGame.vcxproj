@@ -164,8 +164,10 @@
     <ClInclude Include="Game.h" />
     <ClInclude Include="Health.h" />
     <ClInclude Include="Saw.h" />
+    <ClInclude Include="SawParameters.h" />
     <ClInclude Include="SpinningSawTrap.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="BaseParameters.h" />
     <ClInclude Include="TextureMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

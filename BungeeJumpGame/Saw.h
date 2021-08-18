@@ -1,11 +1,12 @@
 #pragma once
 #include <SFML/Graphics.hpp>
+#include "SawParameters.h"
 using namespace sf;
 
 class Saw : public sf::Transformable
 {
 public:
-	Saw(Vector2f position, int rotationDegree, int radius, Color firstColor, Color secondColor, Color thirdColor);
+	Saw(Vector2f position, SawParameters sp);
 	  virtual ~Saw();
 	void setPosition(Vector2f position);
 	void setRotationDegree(int rotationDegree);
@@ -13,6 +14,8 @@ public:
 	Vector2f getPosition();
 	void setRadius(int radius);
 	int getRadius();
+	void setColors(Color firstColor, Color secondColor, Color thirdColor);
+	Color* getColors();
 	void render(RenderTarget& target);
 
 private: 
@@ -21,8 +24,6 @@ private:
 	Color colors[3];
 	int rotationDegree;
 	int radius;
-	void setColors(Color firstColor, Color secondColor, Color thirdColor);
-	Color* getColors();
 	void initSaw(int x, int y, int radius, Color firstColor, Color secondColor, Color thirdColor);
 	VertexArray colourAsignment(VertexArray triangleShape);
 	

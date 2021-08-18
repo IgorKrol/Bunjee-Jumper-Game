@@ -1,12 +1,13 @@
 #include "Saw.h"
+#include "SawParameters.h"
 #include <iostream>
 using namespace std;
 
-Saw::Saw(Vector2f position, int rotationDegree, int radius, Color firstColor, Color secondColor, Color thirdColor)
+Saw::Saw(Vector2f position, SawParameters sp)
 {
 	setPosition(position);
-	initSaw(position.x, position.y, radius, firstColor, secondColor, thirdColor);
-	setRotationDegree(rotationDegree);
+	initSaw(position.x, position.y, sp.sawRadius, sp.sawFirstColor, sp.sawSecondColor, sp.sawThirdColor);
+	setRotationDegree(sp.sawRotationDegree);
 }
 
 Saw::~Saw()
@@ -19,7 +20,6 @@ void Saw::initSaw(int x, int y, int radius, Color firstColor, Color secondColor,
 	setRadius(radius);
 	setColors(firstColor, secondColor, thirdColor);
 	VertexArray uprightTriangle(sf::Triangles, 3);
-
 
 	// define the position of the uprightTriangle's points
 	uprightTriangle[0].position = sf::Vector2f(x + (-0.866 * radius), y + (-0.5 * radius));

@@ -1,13 +1,16 @@
 #pragma once
 #include "Saw.h"
 #include "Base.h"
+#include "BaseParameters.h"
+#include "SawParameters.h"
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
 
 class SpinningSawTrap 
 {
-public:SpinningSawTrap(Vector2f possition, int sawRotationDegree, int baseRotationDegree, int sawRadius, int baseWidth, int baseHeigth, Color sawFirstColor, Color sawSecondColor, Color sawThirdColor, Color baseFirstColor, Color baseSecondColor, Color baseThirdColor, Color baseForthColor);
+public:
+	SpinningSawTrap(Vector2f position, BaseParameters bp, SawParameters sp);
 	  virtual ~SpinningSawTrap();
 	void setPosition(Vector2f position);
 	Vector2f getPosition();
