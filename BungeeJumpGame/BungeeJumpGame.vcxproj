@@ -148,7 +148,7 @@
   <ItemGroup>
     <ClCompile Include="AbstractTrap.cpp" />
     <ClCompile Include="Background.cpp" />
-    <ClCompile Include="Base.cpp" />
+    <ClCompile Include="TrapBase.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Health.cpp" />
     <ClCompile Include="main.cpp" />
@@ -160,7 +160,7 @@
   <ItemGroup>
     <ClInclude Include="AbstractTrap.h" />
     <ClInclude Include="Background.h" />
-    <ClInclude Include="Base.h" />
+    <ClInclude Include="TrapBase.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Health.h" />
     <ClInclude Include="Saw.h" />

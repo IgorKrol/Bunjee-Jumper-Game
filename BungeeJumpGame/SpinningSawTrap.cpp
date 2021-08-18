@@ -6,7 +6,7 @@ SpinningSawTrap::SpinningSawTrap(Vector2f position, BaseParameters bp, SawParame
 {
 	setPosition(position);
 	saw = new Saw(position, sp);
-	base = new Base(position, bp);
+	base = new TrapBase(position, bp);
 }
 
 SpinningSawTrap::~SpinningSawTrap()

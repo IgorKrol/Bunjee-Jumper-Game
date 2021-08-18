@@ -1,20 +1,20 @@
-#include "Base.h"
+#include "TrapBase.h"
 #include "BaseParameters.h"
 #include <iostream>
 using namespace std;
 
-Base::Base(Vector2f position, BaseParameters bp)
+TrapBase::TrapBase(Vector2f position, BaseParameters bp)
 {
 	setPosition(position);
 	initBase(position.x, position.y, bp.baseWidth, bp.baseHeigth, bp.baseFirstColor, bp.baseSecondColor, bp.baseThirdColor, bp.baseFirstColor);
 	setRotationDegree(bp.baseRotationDegree);
 }
 
-Base::~Base()
+TrapBase::~TrapBase()
 {
 }
 
-void Base::initBase(int x, int y, int width, int height, Color firstColor, Color secondColor, Color thirdColor, Color forthColor)
+void TrapBase::initBase(int x, int y, int width, int height, Color firstColor, Color secondColor, Color thirdColor, Color forthColor)
 {
 	setHeight(height);
 	setWidth(width);
@@ -33,7 +33,7 @@ void Base::initBase(int x, int y, int width, int height, Color firstColor, Color
 	this->base = rectangle;
 }
 
-VertexArray  Base::colourAsignment(VertexArray rectangleShape)
+VertexArray  TrapBase::colourAsignment(VertexArray rectangleShape)
 {
 	Color* colors = getColors();
 	for (int i = 0; i < 4; i++)
@@ -43,35 +43,35 @@ VertexArray  Base::colourAsignment(VertexArray rectangleShape)
 	return rectangleShape;
 }
 
-void Base::setPosition(Vector2f position)
+void TrapBase::setPosition(Vector2f position)
 {
 	this->position = position;
 }
 
-Vector2f Base::getPosition()
+Vector2f TrapBase::getPosition()
 {
 	return this->position;
 }
-void Base::setHeight(int height)
+void TrapBase::setHeight(int height)
 {
 	this->height = height;
 }
 
-int Base::getHeight()
+int TrapBase::getHeight()
 {
 	return this->height;
 }
-void Base::setWidth(int width)
+void TrapBase::setWidth(int width)
 {
 	this->width = width;
 }
 
-int Base::getWidth()
+int TrapBase::getWidth()
 {
 	return this->width;
 }
 
-void Base::setColors(Color firstColor, Color secondColor, Color thirdColor, Color forthColor)
+void TrapBase::setColors(Color firstColor, Color secondColor, Color thirdColor, Color forthColor)
 {
 
 	this->colors[0] = firstColor;
@@ -80,21 +80,21 @@ void Base::setColors(Color firstColor, Color secondColor, Color thirdColor, Colo
 	this->colors[3] = forthColor;
 }
 
-Color* Base::getColors()
+Color* TrapBase::getColors()
 {
 	return this->colors;
 }
 
-void Base::setRotationDegree(int rotationDegree)
+void TrapBase::setRotationDegree(int rotationDegree)
 {
 	this->rotationDegree = rotationDegree;
 }
 
-int Base::getRotationDegree()
+int TrapBase::getRotationDegree()
 {
 	return this->rotationDegree;
 }
-void Base::render(RenderTarget& target)
+void TrapBase::render(RenderTarget& target)
 {
 	int rotationDegree = getRotationDegree();
 	sf::Transform transform;

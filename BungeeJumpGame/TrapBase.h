@@ -2,11 +2,11 @@
 #include <SFML/Graphics.hpp>
 #include "BaseParameters.h"
 using namespace sf;
-class Base
+class TrapBase
 {
 public:
-	Base(Vector2f position, BaseParameters bp);
-		virtual ~Base();
+	TrapBase(Vector2f position, BaseParameters bp);
+		virtual ~TrapBase();
 	void setPosition(Vector2f position);
 	Vector2f getPosition();
 	void setHeight(int height);

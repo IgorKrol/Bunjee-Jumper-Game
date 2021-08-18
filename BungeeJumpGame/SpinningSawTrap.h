@@ -1,6 +1,6 @@
 #pragma once
 #include "Saw.h"
-#include "Base.h"
+#include "TrapBase.h"
 #include "BaseParameters.h"
 #include "SawParameters.h"
 #include <SFML/Graphics.hpp>
@@ -18,7 +18,7 @@ public:
 	void render(RenderTarget& target);
 
 private: Vector2f position;
-	  Base* base;
+	  TrapBase* base;
 	   Saw* saw;
 };
 
