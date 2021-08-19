@@ -18,6 +18,7 @@ void SpinningSawTrap::setPosition(Vector2f position)
 {
 	this->position = position;
 }
+
 Vector2f SpinningSawTrap::getPosition()
 {
 	return this->position ;
@@ -51,6 +52,18 @@ Vector2f* SpinningSawTrap::getTrapDimensions()
 		diagonalCoordinatesUpperFirst[1].x = possition.x + sawRadius;
 	}
 	return diagonalCoordinatesUpperFirst;
+}
+
+Vector2f SpinningSawTrap::getSize()
+{
+	auto td = getTrapDimensions();
+	Vector2f corner1 = td[0];
+	Vector2f corner2 = td[1];
+
+	int width = abs(corner1.x - corner2.x);
+	int height = abs(corner1.y - corner2.y);
+
+	return Vector2f(width, height);
 }
 
 void SpinningSawTrap::render(RenderTarget& target)

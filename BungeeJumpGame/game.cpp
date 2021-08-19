@@ -148,6 +148,10 @@ void Game::update()
 {
 	pollEvents();
 
+	if (player->checkCollider(*trap)) {
+		playerHealth->lowerHealth(10);
+	}
+
 	updatePlayerMovement();
 
 }

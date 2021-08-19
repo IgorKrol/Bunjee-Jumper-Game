@@ -15,6 +15,7 @@ public:
 	void setPosition(Vector2f position);
 	Vector2f getPosition();
 	Vector2f* getTrapDimensions();
+	Vector2f getSize();
 	void render(RenderTarget& target);
 
 private: Vector2f position;

@@ -37,6 +37,8 @@ int Health::addHealth(int amount)
 	currentHealth += amount;
 	if (currentHealth > maxHealth)
 		currentHealth = maxHealth;
+
+	text.setString(to_string(currentHealth));
 	return currentHealth;
 }
 
@@ -45,6 +47,8 @@ int Health::lowerHealth(int amount)
 	currentHealth -= amount;
 	if (currentHealth < 0)
 		currentHealth = 0;
+
+	text.setString(to_string(currentHealth));
 	return currentHealth;
 }
 

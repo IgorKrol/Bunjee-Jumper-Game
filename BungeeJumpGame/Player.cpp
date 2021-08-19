@@ -7,17 +7,15 @@ using namespace std;
 void Player::initSprite()
 {
 	shape.setTexture(TextureMap::getInstance().getTexture("Player"));
-	shape.setOrigin(
-		(shape.getGlobalBounds().width) / 2.f,
-		(shape.getGlobalBounds().height / 2.f));
+	shape.setOrigin(getSize().x / 2.f, getSize().y / 2.f);
 	shape.setPosition(400, 300);
-	shape.scale(0.2f,0.2f);
+	shape.scale(0.5f,0.5f);
 }
 
 // construct and init main variables for character
 Player::Player()
 {
-	this->movementSpeed = 4.f;
+	this->movementSpeed = 2.f;
 	initSprite();
 }
 
@@ -47,6 +45,21 @@ void Player::setPosition(Vector2f pos)
 void Player::move(const float dirX, const float dirY)
 {
 	shape.move(movementSpeed * dirX, movementSpeed * dirY);
+}
+
+bool Player::checkCollider(SpinningSawTrap& trap)
+{
+	int deltaX = abs(getPosition().x - trap.getPosition().x);
+	int deltaY = abs(getPosition().y - trap.getPosition().y);
+
+	float combinedWidth = this->getSize().x / 2 + trap.getSize().x / 2;
+	float combinedHeight = this->getSize().y / 2 + trap.getSize().y / 2;
+
+	if (deltaX < combinedWidth && deltaY < combinedHeight) {
+		return true;
+	}
+
+	return false;
 }
 
 void Player::update()
