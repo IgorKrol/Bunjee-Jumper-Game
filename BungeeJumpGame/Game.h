@@ -2,6 +2,7 @@
 
 #include <SFML/System.hpp>
 #include <SFML/Window.hpp>
+#include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
 #include "Player.h"
 #include "Background.h"
@@ -17,6 +18,7 @@ class Game
 
 private:
 	// Variables
+	float dt;
 	RenderWindow* window;
 	VideoMode videoMode;
 	Event ev;

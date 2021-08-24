@@ -13,12 +13,16 @@ class Player
 {
 	Sprite shape;
 	float movementSpeed;
+	bool isInvincible = false;
 
 	void initSprite();
 
 public:
 	Player();
 	virtual ~Player();
+
+	bool getInvincibilityFrames() { return isInvincible; }
+	void setInvincibilityFrames(bool isInv) { isInvincible = isInv; }
 
 	// returns character position center point as Vector2f
 	Vector2f getPosition();

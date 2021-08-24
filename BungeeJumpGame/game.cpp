@@ -1,5 +1,6 @@
 #include "Game.h"
 #include <iostream>
+#include <thread>
 
 using namespace sf;
 
@@ -144,10 +145,22 @@ void Game::boundPlayer()
 // methods
 void Game::update()
 {
+	dt = Clock().restart().asSeconds();
+
 	pollEvents();
 
 	if (player->checkCollider(*trap)) {
-		playerHealth->lowerHealth(1);
+		auto invFrames = player->getInvincibilityFrames();
+		if (!invFrames) {
+			playerHealth->lowerHealth(1);
+			std::thread t([this]() {
+				player->setInvincibilityFrames(true);
+				//invincibility frames
+				sleep(seconds(0.6));
+				player->setInvincibilityFrames(false);
+				});
+			t.detach();
+		}
 	}
 
 	updatePlayerMovement();
@@ -161,9 +174,9 @@ void Game::render()
 
 	background->render(*window);
 
-	player->render(*window);
-
 	trap->render(*window);
+
+	player->render(*window);
 
 	playerHealth->render(*window);
 
