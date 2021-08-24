@@ -1,6 +1,7 @@
 #pragma once
 #include <string>
 #include <SFML/Graphics.hpp>
+#include "Collision.h"
 
 using namespace std;
 using namespace sf;
@@ -34,5 +35,6 @@ public:
 	// load textures when created
 	void loadTexture(string key, string path);
 
+	void loadTextureBitmask(string key, string path);
 };
 

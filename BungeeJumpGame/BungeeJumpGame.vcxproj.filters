@@ -1,78 +1,94 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="AbstractTrap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Background.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Saw.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="SpinningSawTrap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureMap.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Health.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="Collision.cpp">
+      <Filter>CollisionManager</Filter>
     </ClCompile>
     <ClCompile Include="TrapBase.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>TrapManager</Filter>
     </ClCompile>
+    <ClCompile Include="SpinningSawTrap.cpp">
+      <Filter>TrapManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Saw.cpp">
+      <Filter>TrapManager</Filter>
+    </ClCompile>
+    <ClCompile Include="AbstractTrap.cpp">
+      <Filter>TrapManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Health.cpp">
+      <Filter>UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>PlayerManager</Filter>
+    </ClCompile>
+    <ClCompile Include="TextureMap.cpp">
+      <Filter>GameManager</Filter>
+    </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Background</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Background.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Collision.h">
+      <Filter>CollisionManager</Filter>
     </ClInclude>
     <ClInclude Include="AbstractTrap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Saw.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SpinningSawTrap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureMap.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Health.h">
-      <Filter>Header Files</Filter>
+      <Filter>TrapManager</Filter>
     </ClInclude>
     <ClInclude Include="TrapBase.h">
-      <Filter>Header Files</Filter>
+      <Filter>TrapManager</Filter>
     </ClInclude>
-    <ClInclude Include="BaseParameters.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="Saw.h">
+      <Filter>TrapManager</Filter>
     </ClInclude>
     <ClInclude Include="SawParameters.h">
-      <Filter>Header Files</Filter>
+      <Filter>TrapManager</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseParameters.h">
+      <Filter>TrapManager</Filter>
+    </ClInclude>
+    <ClInclude Include="SpinningSawTrap.h">
+      <Filter>TrapManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Health.h">
+      <Filter>UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>PlayerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Background</Filter>
+    </ClInclude>
+    <ClInclude Include="TextureMap.h">
+      <Filter>GameManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{6c1730ed-72dc-4cb1-8217-148a81c2546b}</UniqueIdentifier>
+    <Filter Include="CollisionManager">
+      <UniqueIdentifier>{64a87ac5-a881-4a92-83e1-0f25e545a5f0}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{febbe35b-204f-4ba5-904d-93b7b26409b7}</UniqueIdentifier>
+    <Filter Include="PlayerManager">
+      <UniqueIdentifier>{c17c2c5b-7de0-407e-b5fe-77d4729edb9d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="TrapManager">
+      <UniqueIdentifier>{59cbd9df-f0d3-4591-9dfa-ff0bac04183f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="UIManager">
+      <UniqueIdentifier>{addedf22-73fb-4fee-a364-ff5c81e69801}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GameManager">
+      <UniqueIdentifier>{1ecdc08d-84c9-42e6-9736-6a7be85703be}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Background">
+      <UniqueIdentifier>{c12c2938-2524-4587-9f8a-ef67b849db3e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
