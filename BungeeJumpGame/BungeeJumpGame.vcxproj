@@ -150,10 +150,8 @@
     <ClCompile Include="Background.cpp" />
     <ClCompile Include="Collision.cpp" />
     <ClCompile Include="main.cpp" />
-    <ClCompile Include="TrapBase.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="Health.cpp" />
-    <ClCompile Include="Saw.cpp" />
     <ClCompile Include="SpinningSawTrap.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="TextureMap.cpp" />
@@ -162,14 +160,10 @@
     <ClInclude Include="AbstractTrap.h" />
     <ClInclude Include="Background.h" />
     <ClInclude Include="Collision.h" />
-    <ClInclude Include="TrapBase.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Health.h" />
-    <ClInclude Include="Saw.h" />
-    <ClInclude Include="SawParameters.h" />
     <ClInclude Include="SpinningSawTrap.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="BaseParameters.h" />
     <ClInclude Include="TextureMap.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

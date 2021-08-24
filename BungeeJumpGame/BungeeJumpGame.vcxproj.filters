@@ -4,13 +4,7 @@
     <ClCompile Include="Collision.cpp">
       <Filter>CollisionManager</Filter>
     </ClCompile>
-    <ClCompile Include="TrapBase.cpp">
-      <Filter>TrapManager</Filter>
-    </ClCompile>
     <ClCompile Include="SpinningSawTrap.cpp">
-      <Filter>TrapManager</Filter>
-    </ClCompile>
-    <ClCompile Include="Saw.cpp">
       <Filter>TrapManager</Filter>
     </ClCompile>
     <ClCompile Include="AbstractTrap.cpp">
@@ -38,18 +32,6 @@
       <Filter>CollisionManager</Filter>
     </ClInclude>
     <ClInclude Include="AbstractTrap.h">
-      <Filter>TrapManager</Filter>
-    </ClInclude>
-    <ClInclude Include="TrapBase.h">
-      <Filter>TrapManager</Filter>
-    </ClInclude>
-    <ClInclude Include="Saw.h">
-      <Filter>TrapManager</Filter>
-    </ClInclude>
-    <ClInclude Include="SawParameters.h">
-      <Filter>TrapManager</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseParameters.h">
       <Filter>TrapManager</Filter>
     </ClInclude>
     <ClInclude Include="SpinningSawTrap.h">
