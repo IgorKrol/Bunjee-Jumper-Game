@@ -55,6 +55,11 @@ void SpinningSawTrap::sawRotate(int rotationDegree)
 	this->saw.rotate(rotationDegree);
 }
 
+Sprite& SpinningSawTrap::getSprite()
+{
+	return saw;
+}
+
 
 void SpinningSawTrap::render(RenderTarget& target)
 {

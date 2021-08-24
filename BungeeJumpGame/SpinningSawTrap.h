@@ -15,6 +15,7 @@ public:
 	int getRotationDegree();
 	Vector2f getSize();
 	void sawRotate(int rotationDegree);
+	Sprite& getSprite();
 	void render(RenderTarget& target);
 
 private: Vector2f position;

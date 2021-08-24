@@ -49,17 +49,7 @@ void Player::move(const float dirX, const float dirY)
 
 bool Player::checkCollider(SpinningSawTrap& trap)
 {
-	int deltaX = abs(getPosition().x - trap.getPosition().x);
-	int deltaY = abs(getPosition().y - trap.getPosition().y);
-
-	float combinedWidth = this->getSize().x / 2 + trap.getSize().x / 2;
-	float combinedHeight = this->getSize().y / 2 + trap.getSize().y / 2;
-
-	if (deltaX < combinedWidth && deltaY < combinedHeight) {
-		return true;
-	}
-
-	return false;
+	return Collision::PixelPerfectTest(shape, trap.getSprite());
 }
 
 void Player::update()
