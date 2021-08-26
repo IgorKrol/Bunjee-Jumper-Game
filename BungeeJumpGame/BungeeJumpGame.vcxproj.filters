@@ -26,6 +26,9 @@
       <Filter>Background</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="PendulumTrap.cpp">
+      <Filter>TrapManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collision.h">
@@ -51,6 +54,9 @@
     </ClInclude>
     <ClInclude Include="TextureMap.h">
       <Filter>GameManager</Filter>
+    </ClInclude>
+    <ClInclude Include="PendulumTrap.h">
+      <Filter>TrapManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

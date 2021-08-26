@@ -8,6 +8,7 @@
 #include "Background.h"
 #include "TextureMap.h"
 #include "SpinningSawTrap.h"
+#include "PendulumTrap.h"
 #include "Health.h"
 
 
@@ -25,6 +26,7 @@ private:
 	Player* player;
 	Background* background;
 	SpinningSawTrap* trap;
+	PendulumTrap* pendulum;
 	Health* playerHealth;
 
 

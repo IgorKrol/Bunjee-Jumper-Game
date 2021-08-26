@@ -52,6 +52,7 @@ Game::Game()
 	initPlayer();
 	initHealthBar();
 	trap = new SpinningSawTrap(Vector2f(200, 200), 10);
+	pendulum = new PendulumTrap(Vector2f(400, 400), 13);
 }
 
 Game::~Game()
@@ -175,6 +176,8 @@ void Game::render()
 	background->render(*window);
 
 	trap->render(*window);
+
+	pendulum->render(*window);
 
 	player->render(*window);
 
