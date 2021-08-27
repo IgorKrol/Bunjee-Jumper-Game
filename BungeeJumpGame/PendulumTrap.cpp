@@ -42,12 +42,12 @@ Vector2f PendulumTrap::getPosition()
 	return this->position;
 }
 
-void PendulumTrap::setRotationDegree(int rotationDegree)
+void PendulumTrap::setRotationDegree(double rotationDegree)
 {
 	this->rotationDegree = rotationDegree;
 }
 
-int PendulumTrap::getRotationDegree()
+double PendulumTrap::getRotationDegree()
 {
 	return this->rotationDegree;
 }
@@ -60,8 +60,11 @@ Vector2f PendulumTrap::getSize()
 
 void PendulumTrap::pendulumRotate()
 {
-	int rotationDegree = getRotationDegree();
-	this->axe.rotate(rotationDegree);
+	double rotationDegree = getRotationDegree();
+	if (rotationDegree == (int)rotationDegree)
+	{
+		this->axe.rotate(rotationDegree);
+	}
 	if ((this->axe.getRotation() == 0))
 	{
 		changeRotationIncrementationSigh = !changeRotationIncrementationSigh;
@@ -70,11 +73,12 @@ void PendulumTrap::pendulumRotate()
 	{
 		if (changeRotationIncrementationSigh)
 		{
-			setRotationDegree(rotationDegree + 1);
+			setRotationDegree(rotationDegree + 0.5);
 		}
 		else
 		{
-			setRotationDegree(rotationDegree - 1);
+			setRotationDegree(rotationDegree - 0.5);
+
 		}
 	}
 }
