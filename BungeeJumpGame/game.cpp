@@ -53,13 +53,15 @@ Game::Game()
 	initHealthBar();
 	trap = new SpinningSawTrap(Vector2f(200, 200), 10);
 	pendulum = new PendulumTrap(Vector2f(400, 400), 13);
+	//pendulum->initInitialAxeRotationDegree(180);
 }
 
 Game::~Game()
 {
 	delete this->window;
 	delete this->player;
-
+	delete this->trap;
+	delete this->pendulum;
 }
 
 

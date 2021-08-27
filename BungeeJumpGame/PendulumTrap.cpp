@@ -18,18 +18,31 @@ PendulumTrap::~PendulumTrap()
 void PendulumTrap::initAxe(Vector2f position)
 {
 	axe.setTexture(TextureMap::getInstance().getTexture("Axe_trap"));
-	axe.setOrigin((getSize().x / 2.f), 0);
-	axe.setPosition(position.x+5,position.y);
+	axe.setOrigin((getSize(axe).x / 2.f), 0);
+	axe.rotate(0);
+	axe.setPosition(position.x,position.y);
 	axe.scale(0.5f, 0.5f);
 }
 
 void PendulumTrap::initBase(Vector2f position)
 {
 	base.setTexture(TextureMap::getInstance().getTexture("Base_trap"));
-	base.setOrigin((axe.getOrigin().x),(axe.getOrigin().y + getSize().y / 2.f));
+	base.setOrigin((axe.getOrigin().x),(axe.getOrigin().y + getSize(base).y / 2.f));
 	base.rotate(-90);
 	base.setPosition(position);
 	base.scale(0.2f, 0.2f);
+}
+
+void PendulumTrap::initInitialAxeRotationDegree(double initialAxeRotationDegree)
+{
+	setInitialAxeRotationDegree(initialAxeRotationDegree);
+	axe.rotate(initialAxeRotationDegree);
+}
+
+void PendulumTrap::initInitialBaseRotationDegree(double initialBaseRotationDegree)
+{
+	setInitialBaseRotationDegree(initialBaseRotationDegree);
+	base.rotate(initialBaseRotationDegree);
 }
 
 void PendulumTrap::setPosition(Vector2f position)
@@ -52,10 +65,30 @@ double PendulumTrap::getRotationDegree()
 	return this->rotationDegree;
 }
 
-Vector2f PendulumTrap::getSize()
+void PendulumTrap::setInitialAxeRotationDegree(double initialAxeRotationDegree)
 {
-	FloatRect sawBounds = axe.getGlobalBounds();
-	return Vector2f(sawBounds.width, sawBounds.height);
+	this->initialAxeRotationDegree = initialAxeRotationDegree;
+}
+
+double PendulumTrap::getInitialAxeRotationDegree()
+{
+	return this->initialAxeRotationDegree;
+}
+
+void PendulumTrap::setInitialBaseRotationDegree(double initialBaseRotationDegree)
+{
+	this->initialBaseRotationDegree = initialBaseRotationDegree;
+}
+
+double PendulumTrap::getInitialBaseRotationDegree()
+{
+	return this->initialBaseRotationDegree;
+}
+
+Vector2f PendulumTrap::getSize(Sprite shape)
+{
+	FloatRect axeBounds = shape.getGlobalBounds();
+	return Vector2f(axeBounds.width, axeBounds.height);
 }
 
 void PendulumTrap::pendulumRotate()
@@ -65,7 +98,7 @@ void PendulumTrap::pendulumRotate()
 	{
 		this->axe.rotate(rotationDegree);
 	}
-	if ((this->axe.getRotation() == 0))
+	if ((this->axe.getRotation() == getInitialAxeRotationDegree()))
 	{
 		changeRotationIncrementationSigh = !changeRotationIncrementationSigh;
 	}
@@ -78,7 +111,6 @@ void PendulumTrap::pendulumRotate()
 		else
 		{
 			setRotationDegree(rotationDegree - 0.5);
-
 		}
 	}
 }
