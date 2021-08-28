@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "TextureMap.h"
 #include <iostream>
+#include "Collision.h"
 using namespace std;
 
 //initiate player's texture and shape

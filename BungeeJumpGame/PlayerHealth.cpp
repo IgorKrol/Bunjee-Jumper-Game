@@ -16,7 +16,7 @@ PlayerHealth::~PlayerHealth()
 
 void PlayerHealth::initResourses()
 {
-	heartShape.setTexture(TextureMap::getInstance()->getTexture("Heart"));
+	heartShape.setTexture(TextureMap::getInstance().getTexture("Heart"));
 	if (!font.loadFromFile("Resources/terminal.ttf")) {
 		std::cout << "ERROR::HEALTH::HEALTH::failed to load font" << std::endl;
 	}
@@ -25,7 +25,7 @@ void PlayerHealth::initResourses()
 	heartShape.scale(0.25, 0.25);
 
 	text.setFont(font);
-	text.setString(to_string(currentHealth));
+	text.setString(std::to_string(currentHealth));
 	text.setCharacterSize(60);
 	text.setFillColor(Color::White);
 	text.setOutlineThickness(1);
@@ -38,7 +38,7 @@ int PlayerHealth::addHealth(int amount)
 	if (currentHealth > maxHealth)
 		currentHealth = maxHealth;
 
-	text.setString(to_string(currentHealth));
+	text.setString(std::to_string(currentHealth));
 	return currentHealth;
 }
 
@@ -48,7 +48,7 @@ int PlayerHealth::lowerHealth(int amount)
 	if (currentHealth < 0)
 		currentHealth = 0;
 
-	text.setString(to_string(currentHealth));
+	text.setString(std::to_string(currentHealth));
 	return currentHealth;
 }
 

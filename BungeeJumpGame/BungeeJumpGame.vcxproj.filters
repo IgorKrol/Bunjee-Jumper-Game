@@ -10,7 +10,7 @@
     <ClCompile Include="AbstractTrap.cpp">
       <Filter>TrapManager</Filter>
     </ClCompile>
-    <ClCompile Include="Health.cpp">
+    <ClCompile Include="PlayerHealth.cpp">
       <Filter>UIManager</Filter>
     </ClCompile>
     <ClCompile Include="Game.cpp">
@@ -40,7 +40,7 @@
     <ClInclude Include="SpinningSawTrap.h">
       <Filter>TrapManager</Filter>
     </ClInclude>
-    <ClInclude Include="Health.h">
+    <ClInclude Include="PlayerHealth.h">
       <Filter>UIManager</Filter>
     </ClInclude>
     <ClInclude Include="Game.h">

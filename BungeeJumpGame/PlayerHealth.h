@@ -12,23 +12,12 @@ class PlayerHealth
 	Font font;
 	Text text;
 
-	static PlayerHealth* instance;
 
 public:
 	PlayerHealth(int maxHealth);
 	~PlayerHealth();
 
-	PlayerHealth(PlayerHealth& other) = delete;
-	void operator=(const PlayerHealth&) = delete;
-
-	static PlayerHealth& getInstace() {
-		if (instance == nullptr) {
-			instance = new PlayerHealth(100);
-		}
-		return *instance;
-	}
-
-	// init resources + text
+	// init resourses + text
 	void initResourses();
 	// heals player, returns remain health
 	int addHealth(int amount);

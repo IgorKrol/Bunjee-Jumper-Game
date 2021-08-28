@@ -1,10 +1,6 @@
 #pragma once
 #include <string>
 #include <SFML/Graphics.hpp>
-#include "Collision.h"
-
-using namespace std;
-using namespace sf;
 
 /// <summary>
 /// singleton class for managing all textures for the game as a map.
@@ -12,29 +8,26 @@ using namespace sf;
 class TextureMap
 {
 	static TextureMap* instance;
-	map<string, Texture*> tMap;
+	std::map<std::string, sf::Texture*> tMap;
 		
 	void initTextures();
 
 public:
 	// get the instance for this class as singleton
-	static TextureMap& getInstance() {
-		static TextureMap instance;
-		return instance;
-	}
+	static TextureMap& getInstance();
 
-	// constructors, destructors and singleton protection against copy.
+	// constructor, destructor and singleton protection against copy.
 	TextureMap();
 	TextureMap(TextureMap const&) = delete;
 	void operator=(TextureMap const&) = delete;
 	virtual ~TextureMap();
 
 	// get the texture using string key
-	Texture& getTexture(string key);
+	sf::Texture& getTexture(std::string key);
 
 	// load textures when created
-	void loadTexture(string key, string path);
+	void loadTexture(std::string key, std::string path);
 
-	void loadTextureBitmask(string key, string path);
+	void loadTextureBitmask(std::string key, std::string path);
 };
 

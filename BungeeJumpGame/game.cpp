@@ -36,7 +36,7 @@ void Game::initPlayer()
 
 void Game::initHealthBar()
 {
-	playerHealth = new Health(100);
+	playerHealth = new PlayerHealth(100);
 }
 
 

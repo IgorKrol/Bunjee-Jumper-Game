@@ -1,5 +1,9 @@
 #include "TextureMap.h"
 #include <iostream>
+#include <string>
+#include "Collision.h"
+
+TextureMap* TextureMap::instance = nullptr;
 
 void TextureMap::initTextures()
 {
@@ -10,7 +14,7 @@ void TextureMap::initTextures()
     // background
     loadTexture("Sky_Background", "Sky_Background.png");
     for (int i = 1; i <= 20; i++) {
-        loadTexture("Cloud_"+to_string(i), "Cloud_"+to_string(i)+".png");
+        loadTexture("Cloud_"+std::to_string(i), "Cloud_"+ std::to_string(i)+".png");
     }
 
     // ui
@@ -20,6 +24,14 @@ void TextureMap::initTextures()
     loadTextureBitmask("Base_trap", "Base_trap.png");
     loadTextureBitmask("Saw_trap", "Saw_trap.png");
     loadTextureBitmask("Axe_trap", "Axe_trap.png");
+}
+
+TextureMap& TextureMap::getInstance()
+{
+    if (instance == nullptr) {
+        instance = new TextureMap();
+    }
+    return *instance;
 }
 
 TextureMap::TextureMap()
@@ -34,23 +46,23 @@ TextureMap::~TextureMap()
     }
 }
 
-Texture& TextureMap::getTexture(string key)
+sf::Texture& TextureMap::getTexture(std::string key)
 {
     return *tMap[key];
 }
 
 //add texture to map from Textures folder
-void TextureMap::loadTexture(string key, string path)
+void TextureMap::loadTexture(std::string key, std::string path)
 {
-    tMap[key] = new Texture();
+    tMap[key] = new sf::Texture();
     if (!tMap[key]->loadFromFile("Resources/Textures/" + path)) {
         std::cout << "ERROR::TEXTUREMAP::LOADTEXTURE::failed to load '" + key + "' texture\n";
     }
 }
 
-void TextureMap::loadTextureBitmask(string key, string path)
+void TextureMap::loadTextureBitmask(std::string key, std::string path)
 {
-    tMap[key] = new Texture();
+    tMap[key] = new sf::Texture();
     
     if (!Collision::CreateTextureAndBitmask(*tMap[key], "Resources/Textures/" + path)) {
         std::cout << "ERROR::TEXTUREMAP::LOADTEXTUREWITHBITMASK::failed to load '" + key + "' texture\n";

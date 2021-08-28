@@ -9,7 +9,7 @@
 #include "TextureMap.h"
 #include "SpinningSawTrap.h"
 #include "PendulumTrap.h"
-#include "Health.h"
+#include "PlayerHealth.h"
 
 
 using namespace sf;
@@ -27,7 +27,7 @@ private:
 	Background* background;
 	SpinningSawTrap* trap;
 	PendulumTrap* pendulum;
-	Health* playerHealth;
+	PlayerHealth* playerHealth;
 
 
 	// Methods
