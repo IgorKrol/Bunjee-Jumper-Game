@@ -1,8 +1,8 @@
-#include "Health.h"
+#include "PlayerHealth.h"
 #include "TextureMap.h"
 #include <iostream>
 
-Health::Health(int maxHealth)
+PlayerHealth::PlayerHealth(int maxHealth)
 {
 
 	this->currentHealth = maxHealth;
@@ -10,13 +10,13 @@ Health::Health(int maxHealth)
 	initResourses();
 }
 
-Health::~Health()
+PlayerHealth::~PlayerHealth()
 {
 }
 
-void Health::initResourses()
+void PlayerHealth::initResourses()
 {
-	heartShape.setTexture(TextureMap::getInstance().getTexture("Heart"));
+	heartShape.setTexture(TextureMap::getInstance()->getTexture("Heart"));
 	if (!font.loadFromFile("Resources/terminal.ttf")) {
 		std::cout << "ERROR::HEALTH::HEALTH::failed to load font" << std::endl;
 	}
@@ -32,7 +32,7 @@ void Health::initResourses()
 	text.setPosition(70, 0);
 }
 
-int Health::addHealth(int amount)
+int PlayerHealth::addHealth(int amount)
 {
 	currentHealth += amount;
 	if (currentHealth > maxHealth)
@@ -42,7 +42,7 @@ int Health::addHealth(int amount)
 	return currentHealth;
 }
 
-int Health::lowerHealth(int amount)
+int PlayerHealth::lowerHealth(int amount)
 {
 	currentHealth -= amount;
 	if (currentHealth < 0)
@@ -52,12 +52,12 @@ int Health::lowerHealth(int amount)
 	return currentHealth;
 }
 
-const int Health::getHealth()
+const int PlayerHealth::getHealth()
 {
 	return currentHealth;
 }
 
-void Health::render(RenderTarget& target)
+void PlayerHealth::render(RenderTarget& target)
 {
 	target.draw(heartShape);
 	target.draw(text);

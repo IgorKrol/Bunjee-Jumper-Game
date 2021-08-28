@@ -43,7 +43,7 @@ Texture& TextureMap::getTexture(string key)
 void TextureMap::loadTexture(string key, string path)
 {
     tMap[key] = new Texture();
-    if (!tMap[key]->loadFromFile("Resourses/Textures/" + path)) {
+    if (!tMap[key]->loadFromFile("Resources/Textures/" + path)) {
         std::cout << "ERROR::TEXTUREMAP::LOADTEXTURE::failed to load '" + key + "' texture\n";
     }
 }
@@ -52,7 +52,7 @@ void TextureMap::loadTextureBitmask(string key, string path)
 {
     tMap[key] = new Texture();
     
-    if (!Collision::CreateTextureAndBitmask(*tMap[key], "Resourses/Textures/" + path)) {
+    if (!Collision::CreateTextureAndBitmask(*tMap[key], "Resources/Textures/" + path)) {
         std::cout << "ERROR::TEXTUREMAP::LOADTEXTUREWITHBITMASK::failed to load '" + key + "' texture\n";
     }
 
