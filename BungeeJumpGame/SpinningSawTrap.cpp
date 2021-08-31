@@ -54,7 +54,7 @@ void SpinningSawTrap::sawRotate(int rotationDegree)
 	this->saw.rotate(rotationDegree);
 }
 
-array<Sprite, 1> SpinningSawTrap::getInvolvedSprites()
+array<Sprite, 1> SpinningSawTrap::getSprites()
 {
 	array<Sprite, 1> involvedSprites = {};
 	involvedSprites[0] = (this->saw);

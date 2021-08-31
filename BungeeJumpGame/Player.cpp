@@ -52,7 +52,7 @@ void Player::move(const float dirX, const float dirY)
 bool Player::checkCollider(SpinningSawTrap& trap)
 {
 	//return Collision::PixelPerfectTest(shape, trap.getSprite());
-	for (auto sp : trap.getInvolvedSprites()) {
+	for (auto sp : trap.getSprites()) {
 		if (Collision::PixelPerfectTest(shape, sp)) {
 			return true;
 		}

@@ -21,7 +21,7 @@ public:
 	void initInitialBaseRotationDegree(double initialBaseRotationDegree);
 	double getInitialBaseRotationDegree();
 	Vector2f getSize(Sprite shape);
-	array<Sprite, 2> getInvolvedSprites();
+	array<Sprite, 2> getSprites();
 	void pendulumRotate();
 	void render(RenderTarget& target);
 

@@ -19,7 +19,7 @@ public:
 	Vector2f getSize();
 	void sawRotate(int rotationDegree);
 	Sprite& getSprite();
-	array<Sprite, 1> getInvolvedSprites();
+	array<Sprite, 1> getSprites();
 	void render(RenderTarget& target);
 
 private: Vector2f position;

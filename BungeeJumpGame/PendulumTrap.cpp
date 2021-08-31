@@ -91,7 +91,7 @@ Vector2f PendulumTrap::getSize(Sprite shape)
 	return Vector2f(axeBounds.width, axeBounds.height);
 }
 
-array<Sprite, 2> PendulumTrap::getInvolvedSprites()
+array<Sprite, 2> PendulumTrap::getSprites()
 {
 	array<Sprite, 2> involvedSprites = {};
 	involvedSprites[0] = (this->axe);
@@ -121,6 +121,7 @@ void PendulumTrap::pendulumRotate()
 			setRotationDegree(rotationDegree - 0.5);
 		}
 	}
+	
 }
 
 void PendulumTrap::render(RenderTarget& target)
