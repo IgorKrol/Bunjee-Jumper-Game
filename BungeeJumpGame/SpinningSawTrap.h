@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
+using namespace std;
+
 
 class SpinningSawTrap 
 {
@@ -16,6 +18,7 @@ public:
 	Vector2f getSize();
 	void sawRotate(int rotationDegree);
 	Sprite& getSprite();
+	vector<Sprite>::iterator getInvolvedSprites();
 	void render(RenderTarget& target);
 
 private: Vector2f position;

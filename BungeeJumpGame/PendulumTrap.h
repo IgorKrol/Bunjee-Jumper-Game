@@ -3,6 +3,8 @@
 #include <SFML/Graphics.hpp>
 
 using namespace sf;
+using namespace std;
+
 
 class PendulumTrap
 {
@@ -18,8 +20,8 @@ public:
 	void initInitialBaseRotationDegree(double initialBaseRotationDegree);
 	double getInitialBaseRotationDegree();
 	Vector2f getSize(Sprite shape);
+	vector<Sprite>::iterator getInvolvedSprites();
 	void pendulumRotate();
-	Sprite& getSprite();
 	void render(RenderTarget& target);
 
 private: Vector2f position;

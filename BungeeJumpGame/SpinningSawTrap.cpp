@@ -1,6 +1,5 @@
 #include "SpinningSawTrap.h"
 #include <iostream>
-using namespace std;
 
 SpinningSawTrap::SpinningSawTrap(Vector2f position, int rotationDegree)
 {
@@ -53,6 +52,15 @@ Vector2f SpinningSawTrap::getSize()
 void SpinningSawTrap::sawRotate(int rotationDegree)
 {
 	this->saw.rotate(rotationDegree);
+}
+
+vector<Sprite>::iterator SpinningSawTrap::getInvolvedSprites()
+{
+	vector<Sprite> involvedSprites = vector<Sprite>(2);
+	involvedSprites.push_back(this->saw);
+	vector<Sprite>::iterator it;
+	it = involvedSprites.begin();
+	return it;
 }
 
 Sprite& SpinningSawTrap::getSprite()

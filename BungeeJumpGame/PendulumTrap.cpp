@@ -1,6 +1,5 @@
 #include "PendulumTrap.h"
 #include <iostream>
-using namespace std;
 
 PendulumTrap::PendulumTrap(Vector2f position, int rotationDegree)
 {
@@ -91,6 +90,16 @@ Vector2f PendulumTrap::getSize(Sprite shape)
 	return Vector2f(axeBounds.width, axeBounds.height);
 }
 
+vector<Sprite>::iterator PendulumTrap::getInvolvedSprites()
+{
+	vector<Sprite> involvedSprites = vector<Sprite>(2);
+	involvedSprites.push_back(this->axe);
+	involvedSprites.push_back(this->base);
+	vector<Sprite>::iterator it;
+	it = involvedSprites.begin();
+	return it;
+}
+
 void PendulumTrap::pendulumRotate()
 {
 	double rotationDegree = getRotationDegree();
@@ -113,11 +122,6 @@ void PendulumTrap::pendulumRotate()
 			setRotationDegree(rotationDegree - 0.5);
 		}
 	}
-}
-
-Sprite& PendulumTrap::getSprite()
-{
-	return axe;
 }
 
 void PendulumTrap::render(RenderTarget& target)
