@@ -1,6 +1,7 @@
 #pragma once
 #include"TextureMap.h"
 #include <SFML/Graphics.hpp>
+#include <array>
 
 using namespace sf;
 using namespace std;
@@ -20,7 +21,7 @@ public:
 	void initInitialBaseRotationDegree(double initialBaseRotationDegree);
 	double getInitialBaseRotationDegree();
 	Vector2f getSize(Sprite shape);
-	vector<Sprite>::iterator getInvolvedSprites();
+	array<Sprite, 2>::iterator getInvolvedSprites();
 	void pendulumRotate();
 	void render(RenderTarget& target);
 

@@ -1,6 +1,7 @@
 #pragma once
 #include"TextureMap.h"
 #include <SFML/Graphics.hpp>
+#include <array>
 
 using namespace sf;
 using namespace std;
@@ -18,7 +19,7 @@ public:
 	Vector2f getSize();
 	void sawRotate(int rotationDegree);
 	Sprite& getSprite();
-	vector<Sprite>::iterator getInvolvedSprites();
+	array<Sprite, 1>::iterator getInvolvedSprites();
 	void render(RenderTarget& target);
 
 private: Vector2f position;
