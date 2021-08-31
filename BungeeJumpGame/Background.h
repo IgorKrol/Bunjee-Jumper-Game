@@ -20,6 +20,8 @@ public:
 	Background();
 	virtual ~Background();
 
+	Vector2u getSize();
+
 	void update();
 	void render(RenderWindow& target);
 };

@@ -18,6 +18,11 @@ Background::~Background()
 	}
 }
 
+Vector2u Background::getSize()
+{
+	return Vector2u(backImage.getGlobalBounds().width, backImage.getGlobalBounds().height);
+}
+
 // initialize background image (sky)
 void Background::initBackImage()
 {

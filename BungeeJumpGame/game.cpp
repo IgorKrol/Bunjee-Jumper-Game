@@ -31,7 +31,7 @@ void Game::initBackground()
 // first player initializer
 void Game::initPlayer()
 {
-	player = new Player();
+	player = new Player(Vector2u(GLOBAL_BORDERS.width / 2, GLOBAL_BORDERS.height / 2));
 }
 
 void Game::initHealthBar()
@@ -43,14 +43,21 @@ void Game::initHealthBar()
 
 //public
 
+void Game::initView()
+{
+	this->camera = new CameraManager(this->window);
+}
+
 //ctor dtor
 Game::Game()
 {
 	initVariables();
 	initWindow();
 	initBackground();
+	initBorders();
 	initPlayer();
 	initHealthBar();
+	initView();
 	trap = new SpinningSawTrap(Vector2f(200, 200), 10);
 	pendulum = new PendulumTrap(Vector2f(400, 400), 13);
 	//pendulum->initInitialAxeRotationDegree(180);
@@ -68,6 +75,17 @@ Game::~Game()
 const bool Game::running() const
 {
 	return window->isOpen();
+}
+
+void Game::initBorders()
+{
+	int topLeftX = float(window->getSize().x) / 2;
+	int topLeftY = float(window->getSize().y) / 2;
+
+	int sizeX = background->getSize().x - float(window->getSize().x) / 2;
+	int sizeY = background->getSize().y - float(window->getSize().y) / 2;
+
+	GLOBAL_BORDERS = IntRect(topLeftX, topLeftY, sizeX, sizeY);
 }
 
 // basic event handler for window -> closing for now.
@@ -100,6 +118,19 @@ void Game::updatePlayerMovement()
 // move player depends on key pressed
 void Game::movePlayer()
 {
+	//if (Keyboard::isKeyPressed(Keyboard::A)) {
+	//	camera->move(-10.f, 0.f);
+	//}
+	//else if (Keyboard::isKeyPressed(Keyboard::D)) {
+	//	camera->move(10.f, 0.f);
+	//}
+	//if (Keyboard::isKeyPressed(Keyboard::W)) {
+	//	camera->move(0.f, -10.f);
+	//}
+	//else if (Keyboard::isKeyPressed(Keyboard::S)) {
+	//	camera->move(0.f, 10.f);
+	//}
+
 	if (Keyboard::isKeyPressed(Keyboard::A)) {
 		player->move(-1.f, 0.f);
 	}
@@ -167,6 +198,8 @@ void Game::update()
 	}
 
 	updatePlayerMovement();
+	
+	camera->update(*player);
 
 }
 

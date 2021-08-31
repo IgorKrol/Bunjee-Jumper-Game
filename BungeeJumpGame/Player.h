@@ -15,10 +15,10 @@ class Player
 	float movementSpeed;
 	bool isInvincible = false;
 
-	void initSprite();
+	void initSprite(Vector2u startPosition);
 
 public:
-	Player();
+	Player(Vector2u startPosition);
 	virtual ~Player();
 
 	bool getInvincibilityFrames() { return isInvincible; }

@@ -5,19 +5,20 @@
 using namespace std;
 
 //initiate player's texture and shape
-void Player::initSprite()
+void Player::initSprite(Vector2u startPosition)
 {
 	shape.setTexture(TextureMap::getInstance().getTexture("Player"));
 	shape.setOrigin(getSize().x / 2.f, getSize().y / 2.f);
-	shape.setPosition(400, 300);
+	//shape.setPosition(startPosition.x, startPosition.y);
+	shape.setPosition(2000, 2000);
 	shape.scale(0.5f,0.5f);
 }
 
 // construct and init main variables for character
-Player::Player()
+Player::Player(Vector2u startPosition)
 {
-	this->movementSpeed = 2.f;
-	initSprite();
+	this->movementSpeed = 20.f;
+	initSprite(startPosition);
 }
 
 // destructor 
@@ -50,7 +51,14 @@ void Player::move(const float dirX, const float dirY)
 
 bool Player::checkCollider(SpinningSawTrap& trap)
 {
-	return Collision::PixelPerfectTest(shape, trap.getSprite());
+	//return Collision::PixelPerfectTest(shape, trap.getSprite());
+	for (auto sp : trap.getInvolvedSprites()) {
+		if (Collision::PixelPerfectTest(shape, sp)) {
+			return true;
+		}
+	}
+
+	return false;
 }
 
 void Player::update()

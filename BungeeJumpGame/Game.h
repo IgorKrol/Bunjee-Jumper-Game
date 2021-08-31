@@ -10,6 +10,7 @@
 #include "SpinningSawTrap.h"
 #include "PendulumTrap.h"
 #include "PlayerHealth.h"
+#include "CameraManager.h"
 
 
 using namespace sf;
@@ -18,6 +19,10 @@ class Game
 {
 
 private:
+	// v2u topleft corner, v2u size
+	IntRect GLOBAL_BORDERS;
+	
+
 	// Variables
 	float dt;
 	RenderWindow* window;
@@ -28,6 +33,7 @@ private:
 	SpinningSawTrap* trap;
 	PendulumTrap* pendulum;
 	PlayerHealth* playerHealth;
+	CameraManager* camera;
 
 
 	// Methods
@@ -37,6 +43,8 @@ private:
 	void initBackground();
 	void initPlayer();
 	void initHealthBar();
+	void initView();
+	void initBorders();
 
 public:
 

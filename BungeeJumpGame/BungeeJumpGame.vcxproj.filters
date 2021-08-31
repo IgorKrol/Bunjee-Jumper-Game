@@ -29,6 +29,9 @@
     <ClCompile Include="PendulumTrap.cpp">
       <Filter>TrapManager</Filter>
     </ClCompile>
+    <ClCompile Include="CameraManager.cpp">
+      <Filter>CameraManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collision.h">
@@ -58,6 +61,9 @@
     <ClInclude Include="PendulumTrap.h">
       <Filter>TrapManager</Filter>
     </ClInclude>
+    <ClInclude Include="CameraManager.h">
+      <Filter>CameraManager</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CollisionManager">
@@ -77,6 +83,9 @@
     </Filter>
     <Filter Include="Background">
       <UniqueIdentifier>{c12c2938-2524-4587-9f8a-ef67b849db3e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="CameraManager">
+      <UniqueIdentifier>{de3ff855-6a88-4f6b-bfc4-90a4d754d2cf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
