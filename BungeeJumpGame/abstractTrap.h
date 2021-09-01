@@ -1,11 +1,12 @@
+#pragma once
 #include <SFML/Graphics.hpp>
-#include <array>
+#include <array> // doesn't compile without it. Why?
 
 using namespace sf;
 class AbstractTrap
 {
 	public:
-		virtual std::array<sf::Sprite, 2> getSprites()=0;
-		virtual void render() = 0;
+		virtual std::vector<Sprite> getSprites()=0;
+		virtual void render(RenderTarget& target) = 0;
 };
 

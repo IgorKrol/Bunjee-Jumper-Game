@@ -1,13 +1,13 @@
 #pragma once
 #include"TextureMap.h"
+#include "AbstractTrap.h"
 #include <SFML/Graphics.hpp>
-#include <array>
 
 using namespace sf;
 using namespace std;
 
 
-class SpinningSawTrap 
+class SpinningSawTrap : public AbstractTrap
 {
 public:
 	SpinningSawTrap(Vector2f position,int rotationDegree);
@@ -19,7 +19,7 @@ public:
 	Vector2f getSize();
 	void sawRotate(int rotationDegree);
 	Sprite& getSprite();
-	array<Sprite, 1> getSprites();
+	vector<Sprite> getSprites();
 	void render(RenderTarget& target);
 
 private: Vector2f position;

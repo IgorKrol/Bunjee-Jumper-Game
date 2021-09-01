@@ -197,6 +197,20 @@ void Game::update()
 		}
 	}
 
+	if (player->checkCollider(*pendulum)) {
+		auto invFrames = player->getInvincibilityFrames();
+		if (!invFrames) {
+			playerHealth->lowerHealth(1);
+			std::thread t([this]() {
+				player->setInvincibilityFrames(true);
+				//invincibility frames
+				sleep(seconds(0.6));
+				player->setInvincibilityFrames(false);
+				});
+			t.detach();
+		}
+	}
+
 	updatePlayerMovement();
 	
 	camera->update(*player);

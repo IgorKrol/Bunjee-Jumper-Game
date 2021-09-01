@@ -4,6 +4,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "AbstractTrap.h"
 #include "Player.h"
 #include "Background.h"
 #include "TextureMap.h"
@@ -30,8 +31,8 @@ private:
 	Event ev;
 	Player* player;
 	Background* background;
-	SpinningSawTrap* trap;
-	PendulumTrap* pendulum;
+	AbstractTrap* trap;
+	AbstractTrap* pendulum;
 	PlayerHealth* playerHealth;
 	CameraManager* camera;
 

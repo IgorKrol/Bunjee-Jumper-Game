@@ -1,13 +1,13 @@
 #pragma once
 #include"TextureMap.h"
+#include "AbstractTrap.h"
 #include <SFML/Graphics.hpp>
-#include <array>
 
 using namespace sf;
 using namespace std;
 
 
-class PendulumTrap
+class PendulumTrap : public AbstractTrap
 {
 public:
 	PendulumTrap(Vector2f position, int rotationDegree);
@@ -21,7 +21,7 @@ public:
 	void initInitialBaseRotationDegree(double initialBaseRotationDegree);
 	double getInitialBaseRotationDegree();
 	Vector2f getSize(Sprite shape);
-	array<Sprite, 2> getSprites();
+	vector<Sprite> getSprites();
 	void pendulumRotate();
 	void render(RenderTarget& target);
 

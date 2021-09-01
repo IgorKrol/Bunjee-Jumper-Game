@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include "SpinningSawTrap.h"
+#include "AbstractTrap.h"
 
 
 using namespace sf;
@@ -37,7 +37,7 @@ public:
 	void move(const float dirX, const float dirY);
 
 	// checks if player collides wich a trap
-	bool checkCollider(SpinningSawTrap& trap);
+	bool checkCollider(AbstractTrap& trap);
 
 	//update any changes for the character
 	void update();

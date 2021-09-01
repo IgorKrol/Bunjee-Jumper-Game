@@ -1,6 +1,5 @@
 #include "PendulumTrap.h"
 #include <iostream>
-#include <array>
 
 PendulumTrap::PendulumTrap(Vector2f position, int rotationDegree)
 {
@@ -91,11 +90,11 @@ Vector2f PendulumTrap::getSize(Sprite shape)
 	return Vector2f(axeBounds.width, axeBounds.height);
 }
 
-array<Sprite, 2> PendulumTrap::getSprites()
+vector<Sprite> PendulumTrap::getSprites()
 {
-	array<Sprite, 2> involvedSprites = {};
-	involvedSprites[0] = (this->axe);
-	involvedSprites[1] = (this->base);
+	vector<Sprite> involvedSprites = {};
+	involvedSprites.push_back(this->axe);
+	involvedSprites.push_back(this->base);
 	return involvedSprites;
 }
 
