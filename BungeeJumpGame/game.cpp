@@ -112,7 +112,9 @@ void Game::updatePlayerMovement()
 	movePlayer();
 
 	// global window player collisions corrections
-	boundPlayer();
+	//boundPlayer();
+	camera->keepPlayerContained(*player);
+
 }
 
 // move player depends on key pressed
@@ -212,8 +214,12 @@ void Game::update()
 	}
 
 	updatePlayerMovement();
+
+	//std::cout << camera->Contains(*player) << std::endl;
+
 	
 	camera->update(*player);
+
 
 }
 

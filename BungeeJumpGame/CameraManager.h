@@ -19,6 +19,7 @@ public:
 	void setPosition(Vector2f pos);
 	void BorderCollisionsCorrection();
 	void update(Player& player);
+	void keepPlayerContained(Player& player);
 
 
 };

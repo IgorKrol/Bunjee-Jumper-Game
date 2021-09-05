@@ -16,22 +16,38 @@ CameraManager::~CameraManager()
 	delete mainCamera;
 }
 
+// return false if view does NOT contains player, otherwise return true.
 bool CameraManager::Contains(Player& player)
 {
-	return false;
+	auto tl = mainCamera->getCenter() - (mainCamera->getSize() / 2.f);
+	auto br = mainCamera->getCenter() + (mainCamera->getSize() / 2.f);
+
+	auto playerTl = player.getPosition() - (player.getSize() / 2.f);
+	auto playerBr = player.getPosition() + (player.getSize() / 2.f);
+
+	if (tl.x > playerTl.x || br.x < playerBr.x
+		|| tl.y > playerTl.y || br.y < playerBr.y) {
+		return false;
+
+	}
+
+	return true;
 }
 
+// move +dirX,+dirY
 void CameraManager::move(float dirX, float dirY)
 {
 	mainCamera->move(dirX, dirY);
 	BorderCollisionsCorrection();
 }
 
+// set view position : pos = view's center point
 void CameraManager::setPosition(Vector2f pos)
 {
 	mainCamera->setCenter(pos);
 }
 
+// limit view to stay inside background domain
 void CameraManager::BorderCollisionsCorrection()
 {
 	//left
@@ -52,8 +68,40 @@ void CameraManager::BorderCollisionsCorrection()
 	}
 }
 
+// updates view
 void CameraManager::update(Player& player)
 {
 	//std::cout << mainCamera->getCenter().x << "," << mainCamera->getViewport().contains() << std::endl;
 	this->window->setView(*mainCamera);
+}
+
+// contains player movement inside this view.
+void CameraManager::keepPlayerContained(Player& player)
+{
+	auto tl = mainCamera->getCenter() - (mainCamera->getSize() / 2.f);
+	auto br = mainCamera->getCenter() + (mainCamera->getSize() / 2.f);
+
+	auto playerCorrection = player.getSize() / 2.f;
+
+	auto playerTl = player.getPosition() - playerCorrection;
+	auto playerBr = player.getPosition() + playerCorrection;
+
+	// left
+	if (tl.x > playerTl.x) {
+		player.setPosition(Vector2f(tl.x + playerCorrection.x, player.getPosition().y));
+	}
+	// right
+	else if (br.x < playerBr.x) {
+		player.setPosition(Vector2f(br.x - playerCorrection.x, player.getPosition().y));
+	}
+	
+	// top
+	if (tl.y > playerTl.y) {
+		player.setPosition(Vector2f(player.getPosition().x, tl.y + playerCorrection.y));
+	}
+	// bottom
+	else if (br.y < playerBr.y) {
+		player.setPosition(Vector2f(player.getPosition().x, br.y - playerCorrection.y));
+	}
+
 }
