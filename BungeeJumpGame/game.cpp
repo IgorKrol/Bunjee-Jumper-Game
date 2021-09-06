@@ -120,31 +120,31 @@ void Game::updatePlayerMovement()
 // move player depends on key pressed
 void Game::movePlayer()
 {
-	//if (Keyboard::isKeyPressed(Keyboard::A)) {
-	//	camera->move(-10.f, 0.f);
-	//}
-	//else if (Keyboard::isKeyPressed(Keyboard::D)) {
-	//	camera->move(10.f, 0.f);
-	//}
-	//if (Keyboard::isKeyPressed(Keyboard::W)) {
-	//	camera->move(0.f, -10.f);
-	//}
-	//else if (Keyboard::isKeyPressed(Keyboard::S)) {
-	//	camera->move(0.f, 10.f);
-	//}
-
 	if (Keyboard::isKeyPressed(Keyboard::A)) {
-		player->move(-1.f, 0.f);
+		camera->move(-10.f, 0.f);
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
-		player->move(1.f, 0.f);
+		camera->move(10.f, 0.f);
 	}
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
-		player->move(0.f, -1.f);
+		camera->move(0.f, -10.f);
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
-		player->move(0.f, 1.f);
+		camera->move(0.f, 10.f);
 	}
+
+	//if (Keyboard::isKeyPressed(Keyboard::A)) {
+	//	player->move(-1.f, 0.f);
+	//}
+	//else if (Keyboard::isKeyPressed(Keyboard::D)) {
+	//	player->move(1.f, 0.f);
+	//}
+	//if (Keyboard::isKeyPressed(Keyboard::W)) {
+	//	player->move(0.f, -1.f);
+	//}
+	//else if (Keyboard::isKeyPressed(Keyboard::S)) {
+	//	player->move(0.f, 1.f);
+	//}
 }
 
 // correct collisions with window
@@ -217,8 +217,9 @@ void Game::update()
 
 	//std::cout << camera->Contains(*player) << std::endl;
 
-	
 	camera->update(*player);
+
+	playerHealth->setPosition(camera->getTopLeftCorner());
 
 
 }

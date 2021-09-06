@@ -17,6 +17,7 @@ public:
 	bool Contains(Player& player);
 	void move(float dirX, float dirY);
 	void setPosition(Vector2f pos);
+	Vector2f getTopLeftCorner();
 	void BorderCollisionsCorrection();
 	void update(Player& player);
 	void keepPlayerContained(Player& player);

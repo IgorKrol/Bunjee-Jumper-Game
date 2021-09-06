@@ -57,8 +57,20 @@ const int PlayerHealth::getHealth()
 	return currentHealth;
 }
 
+void PlayerHealth::setPosition(Vector2f viewTL)
+{
+	this->pos = viewTL;
+}
+
+void PlayerHealth::updateLocation()
+{
+	heartShape.setPosition(pos.x + 10, pos.y + 15);
+	text.setPosition(pos.x + 70, pos.y + 0);
+}
+
 void PlayerHealth::render(RenderTarget& target)
 {
+	updateLocation();
 	target.draw(heartShape);
 	target.draw(text);
 }

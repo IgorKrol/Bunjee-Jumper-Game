@@ -47,6 +47,12 @@ void CameraManager::setPosition(Vector2f pos)
 	mainCamera->setCenter(pos);
 }
 
+// return top left corner cordinates of this view
+Vector2f CameraManager::getTopLeftCorner()
+{
+	return mainCamera->getCenter() - (mainCamera->getSize() / 2.f);
+}
+
 // limit view to stay inside background domain
 void CameraManager::BorderCollisionsCorrection()
 {
