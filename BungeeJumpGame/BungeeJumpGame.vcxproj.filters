@@ -32,6 +32,7 @@
     <ClCompile Include="CameraManager.cpp">
       <Filter>CameraManager</Filter>
     </ClCompile>
+    <ClCompile Include="Randomization.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Collision.h">
@@ -64,6 +65,7 @@
     <ClInclude Include="CameraManager.h">
       <Filter>CameraManager</Filter>
     </ClInclude>
+    <ClInclude Include="Randomization.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CollisionManager">

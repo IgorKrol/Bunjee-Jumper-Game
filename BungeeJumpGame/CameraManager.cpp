@@ -41,6 +41,33 @@ void CameraManager::move(float dirX, float dirY)
 	BorderCollisionsCorrection();
 }
 
+void CameraManager::setMovementDelta(Vector2f movementDelta)
+{
+	this->movementDelta = movementDelta;
+}
+Vector2f CameraManager::getMovementDelta()
+{
+	return this->movementDelta;
+}
+
+void CameraManager::setTime(int time)
+{
+	this->time = time;
+}
+int CameraManager::getTime()
+{
+	return this->time;
+}
+
+void CameraManager::setCounterToTime(int counterToTime)
+{
+	this->counterToTime = counterToTime;
+}
+int CameraManager::getCounterToTime()
+{
+	return this->counterToTime;
+}
+
 // set view position : pos = view's center point
 void CameraManager::setPosition(Vector2f pos)
 {
@@ -53,27 +80,68 @@ Vector2f CameraManager::getTopLeftCorner()
 	return mainCamera->getCenter() - (mainCamera->getSize() / 2.f);
 }
 
+void CameraManager::randomCameraMovement()
+{
+	Randomization* random = new Randomization();
+
+	if(getCounterToTime() >= getTime())
+	{
+		setTime((int)random->getRundomNumber(180, 540, true));
+		setMovementDelta(Vector2f(random->getRundomNumber(-1, 1, false), random->getRundomNumber(-1, 1, false)));
+		setCounterToTime(0);
+	}
+	else
+	{
+		move(getMovementDelta().x, getMovementDelta().y);
+		setCounterToTime(getCounterToTime()+1);
+	}
+}
+
 // limit view to stay inside background domain
 void CameraManager::BorderCollisionsCorrection()
 {
 	//left
 	if (mainCamera->getCenter().x < borders.left) {
 		mainCamera->setCenter(borders.left, mainCamera->getCenter().y);
+		setMovementDelta(Vector2f(-getMovementDelta().x, getMovementDelta().y));
 	}
 	//right
 	else if(mainCamera->getCenter().x > borders.width) {
 		mainCamera->setCenter(borders.width, mainCamera->getCenter().y);
+		setMovementDelta(Vector2f(-getMovementDelta().x, getMovementDelta().y));
 	}
 	//top
 	if (mainCamera->getCenter().y < borders.top) {
 		mainCamera->setCenter(mainCamera->getCenter().x, borders.top);
+		setMovementDelta(Vector2f(getMovementDelta().x, -getMovementDelta().y));
 	}
 	//bottom
 	else if(mainCamera->getCenter().y > borders.height){
 		mainCamera->setCenter(mainCamera->getCenter().x, borders.height);
+		setMovementDelta(Vector2f(getMovementDelta().x, -getMovementDelta().y));
 	}
 }
 
+//// limit view to stay inside background domain
+//void CameraManager::BorderCollisionsCorrection()
+//{
+//	//left
+//	if (mainCamera->getCenter().x < borders.left) {
+//		mainCamera->setCenter(borders.left, mainCamera->getCenter().y);
+//	}
+//	//right
+//	else if (mainCamera->getCenter().x > borders.width) {
+//		mainCamera->setCenter(borders.width, mainCamera->getCenter().y);
+//	}
+//	//top
+//	if (mainCamera->getCenter().y < borders.top) {
+//		mainCamera->setCenter(mainCamera->getCenter().x, borders.top);
+//	}
+//	//bottom
+//	else if (mainCamera->getCenter().y > borders.height) {
+//		mainCamera->setCenter(mainCamera->getCenter().x, borders.height);
+//	}
+//}
 // updates view
 void CameraManager::update(Player& player)
 {

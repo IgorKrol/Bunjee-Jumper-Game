@@ -120,7 +120,8 @@ void Game::updatePlayerMovement()
 // move player depends on key pressed
 void Game::movePlayer()
 {
-	if (Keyboard::isKeyPressed(Keyboard::A)) {
+	camera->randomCameraMovement();
+	/*if (Keyboard::isKeyPressed(Keyboard::A)) {
 		camera->move(-10.f, 0.f);
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
@@ -131,7 +132,7 @@ void Game::movePlayer()
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
 		camera->move(0.f, 10.f);
-	}
+	}*/
 
 	//if (Keyboard::isKeyPressed(Keyboard::A)) {
 	//	player->move(-1.f, 0.f);
