@@ -24,3 +24,11 @@ float Randomization::getRundomNumber(int lowerLimit, int upperLimit, bool timeGe
 		return distr(generator);
 	}
 }
+
+//void Randomization::createRandomTrapOutsideOfView(CameraManager* view, Background* wholeMap, std::vector<AbstractTrap*> trapTypes)
+//{
+//	Vector2f viewTopLeftCorner = view->getTopLeftCorner();
+//	Vector2f viewBottomRightCorner = view->getBottomRightCorner();
+//	Vector2u mapSize = wholeMap->getSize();
+//	//trapTypes//no instanceof
+//}

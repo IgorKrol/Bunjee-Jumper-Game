@@ -11,6 +11,7 @@ void Game::initVariables()
 	this->player = nullptr;
 	background = nullptr;
 	playerHealth = nullptr;
+
 }
 
 // first initilizer for window

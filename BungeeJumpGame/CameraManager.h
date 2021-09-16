@@ -29,6 +29,7 @@ public:
 	void setCounterToTime(int counterToTime);
 	int getCounterToTime();
 	Vector2f getTopLeftCorner();
+	Vector2f getBottomRightCorner();
 	void randomCameraMovement();
 	void BorderCollisionsCorrection();
 	void update(Player& player);

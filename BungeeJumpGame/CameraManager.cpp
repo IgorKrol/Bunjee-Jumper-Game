@@ -80,6 +80,11 @@ Vector2f CameraManager::getTopLeftCorner()
 	return mainCamera->getCenter() - (mainCamera->getSize() / 2.f);
 }
 
+Vector2f CameraManager::getBottomRightCorner()
+{
+	return mainCamera->getCenter() + (mainCamera->getSize() / 2.f);
+}
+
 void CameraManager::randomCameraMovement()
 {
 	Randomization* random = new Randomization();

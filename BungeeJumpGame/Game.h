@@ -15,6 +15,7 @@
 
 
 using namespace sf;
+const std::vector<AbstractTrap*> CONST_TRAP_TYPES = {new SpinningSawTrap(Vector2f(200, 200), 10), new PendulumTrap(Vector2f(400, 400), 13)};
 
 class Game
 {
@@ -35,6 +36,7 @@ private:
 	AbstractTrap* pendulum;
 	PlayerHealth* playerHealth;
 	CameraManager* camera;
+
 
 
 	// Methods
