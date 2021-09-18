@@ -121,7 +121,8 @@ void Game::updatePlayerMovement()
 // move player depends on key pressed
 void Game::movePlayer()
 {
-	camera->randomCameraMovement();
+	Randomization* random = new Randomization();
+	random->randomCameraMovement(camera);
 	/*if (Keyboard::isKeyPressed(Keyboard::A)) {
 		camera->move(-10.f, 0.f);
 	}

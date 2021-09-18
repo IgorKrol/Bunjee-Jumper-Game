@@ -85,22 +85,6 @@ Vector2f CameraManager::getBottomRightCorner()
 	return mainCamera->getCenter() + (mainCamera->getSize() / 2.f);
 }
 
-void CameraManager::randomCameraMovement()
-{
-	Randomization* random = new Randomization();
-
-	if(getCounterToTime() >= getTime())
-	{
-		setTime((int)random->getRundomNumber(180, 540, true));
-		setMovementDelta(Vector2f(random->getRundomNumber(-1, 1, false), random->getRundomNumber(-1, 1, false)));
-		setCounterToTime(0);
-	}
-	else
-	{
-		move(getMovementDelta().x, getMovementDelta().y);
-		setCounterToTime(getCounterToTime()+1);
-	}
-}
 
 // limit view to stay inside background domain
 void CameraManager::BorderCollisionsCorrection()

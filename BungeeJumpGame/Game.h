@@ -4,6 +4,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFML/Audio.hpp>
+#include "Randomization.h"
 #include "AbstractTrap.h"
 #include "Player.h"
 #include "Background.h"
