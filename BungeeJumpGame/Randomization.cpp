@@ -35,13 +35,13 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 	AbstractTrap* generatedTrap;
 	bool unacceptableTrapCreationPoint = true;
 	bool createdTrapsBoundingsCollidedWithNewCreationPoint = false;
-	int framescounter = 0;
 	int i = (int)getRundomNumber(0,10000,true)% trapTypes.size();
 	int x = (int)getRundomNumber(0, mapSize.x, true);
 	int y = (int)getRundomNumber(0, mapSize.y, true);
 
-	if ((framescounter == this->framesBetweenTrapGenerations)&&(generatedTraps.size()!=this->concorrentGeneratedTrapLimit))
+	if ((framescounter == this->framesBetweenTrapGenerations) && (generatedTraps.size() != this->concorrentGeneratedTrapLimit))
 	{
+		
 		while (unacceptableTrapCreationPoint)
 		{
 			if (((viewTopLeftCorner.x < x) && (x < viewBottomRightCorner.x)) && ((viewTopLeftCorner.y < y) && (y < viewBottomRightCorner.y)))
@@ -88,8 +88,9 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 		//	x = (int)getRundomNumber(0, mapSize.x, true);
 		//	y = (int)getRundomNumber(0, mapSize.y, true);
 		//}
-
+		std::cout << "aaaaaa" << std::endl;
 		AbstractTrap* generatedTrap = AbstractTrap::Create(trapTypes[i], Vector2f(x, y), 13);
+		this->framescounter = 0;
 		//AbstractTrap* generatedTrap = AbstractTrap::Create(trapTypes[i], Vector2f((int)getRundomNumber(viewBottomRightCorner.x+1, mapSize.x, true), 
 		//																		  (int)getRundomNumber(viewBottomRightCorner.y + 1, mapSize.y, true)),13);
 		//AbstractTrap* generatedTrap = AbstractTrap::Create(trapTypes[i], Vector2f((int)getRundomNumber(0, viewBottomRightCorner.x - 1, true),
@@ -111,7 +112,12 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 	}
 	else
 	{
-		++framescounter;
+		this->framescounter = ++framescounter;
+		std::cout << framescounter << std::endl;
+		if (framescounter > this->framesBetweenTrapGenerations)
+		{
+			this->framescounter = 0;
+		}
 	}
 
 	for (int i = 0; i < generatedTraps.size(); i++)

@@ -10,15 +10,16 @@ class Randomization
 {
 private:
 	vector<pair<bool,AbstractTrap*>> generatedTraps;
-	int framesBetweenTrapGenerations = 360;
-	int concorrentGeneratedTrapLimit = 10;
+	int framesBetweenTrapGenerations = 10;
+	int concorrentGeneratedTrapLimit = 50;
+	int framescounter = 0;
 	bool firstCreation = true;
 public:
 	Randomization();
 	~Randomization();
 	float getRundomNumber(int lowerLimit, int upperLimit, bool intGeneration);
-	void randomCameraMovement(CameraManager* view);
 	void createRandomTrapOutsideOfView(RenderTarget& target, CameraManager* view, Background* wholeMap, const vector<string> trapTypes);
+	void randomCameraMovement(CameraManager* view);
 	void setConcorrentGeneratedTrapLimit(int concorrentGeneratedTrapLimit);
 	int getConcorrentGeneratedTrapLimit();
 	void setFramesBetweenTrapGenerations(int framesBetweenTrapGenerations);
