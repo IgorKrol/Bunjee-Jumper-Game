@@ -130,7 +130,7 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 		}
 
 		if (((viewTopLeftCorner.x > generatedTraps[i].second->getPosition().x) || (generatedTraps[i].second->getPosition().x > viewBottomRightCorner.x)) 
-			&& ((viewTopLeftCorner.y > generatedTraps[i].second->getPosition().y)|| (generatedTraps[i].second->getPosition().y > viewBottomRightCorner.y))
+			|| ((viewTopLeftCorner.y > generatedTraps[i].second->getPosition().y)|| (generatedTraps[i].second->getPosition().y > viewBottomRightCorner.y))
 			&&(generatedTraps[i].first==true))
 		{
 			 generatedTraps.erase(generatedTraps.begin() + i); //why generatedTraps.begin() + i and not just i

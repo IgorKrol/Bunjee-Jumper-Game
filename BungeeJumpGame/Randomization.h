@@ -10,8 +10,8 @@ class Randomization
 {
 private:
 	vector<pair<bool,AbstractTrap*>> generatedTraps;
-	int framesBetweenTrapGenerations = 10;
-	int concorrentGeneratedTrapLimit = 50;
+	int framesBetweenTrapGenerations = 360;
+	int concorrentGeneratedTrapLimit = 10;
 	int framescounter = 0;
 	bool firstCreation = true;
 public:
