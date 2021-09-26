@@ -120,6 +120,7 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 			&& ((viewTopLeftCorner.y < generatedTraps[i].second->getPosition().y) && (generatedTraps[i].second->getPosition().y < viewBottomRightCorner.y)))
 		{
 			generatedTraps[i].first = true;
+			generatedTraps[i].second->render(target);
 		}
 
 		if (((viewTopLeftCorner.x > generatedTraps[i].second->getPosition().x) && (generatedTraps[i].second->getPosition().x > viewBottomRightCorner.x)) 
