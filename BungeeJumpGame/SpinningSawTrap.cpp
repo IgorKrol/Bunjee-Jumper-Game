@@ -67,6 +67,16 @@ Sprite& SpinningSawTrap::getSprite()
 }
 
 
+FloatRect SpinningSawTrap::getGlobalBounding()
+{
+	FloatRect sawBounds = this->getSprite().getGlobalBounds();
+	return sawBounds;
+}
+//SpinningSawTrap* SpinningSawTrap::getType()
+//{
+//	return this;
+//}
+
 void SpinningSawTrap::render(RenderTarget& target)
 {
 	sawRotate(getRotationDegree());

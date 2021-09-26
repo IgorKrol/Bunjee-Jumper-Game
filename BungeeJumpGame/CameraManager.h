@@ -6,14 +6,16 @@
 
 class CameraManager
 {
+private:
 	// variables
 	sf::RenderWindow* window;
 	sf::View* mainCamera;
 	sf::IntRect borders;
-private:
+
 	int time=-1;
 	int counterToTime=0;
 	Vector2f movementDelta;
+
 
 public:
 	CameraManager(sf::RenderWindow* rw);

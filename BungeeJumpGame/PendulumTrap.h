@@ -7,7 +7,7 @@ using namespace sf;
 using namespace std;
 
 
-class PendulumTrap : public AbstractTrap
+class PendulumTrap : public AbstractTrap//<PendulumTrap>
 {
 public:
 	PendulumTrap(Vector2f position, int rotationDegree);
@@ -22,7 +22,9 @@ public:
 	double getInitialBaseRotationDegree();
 	Vector2f getSize(Sprite shape);
 	vector<Sprite> getSprites();
+	FloatRect getGlobalBounding();
 	void pendulumRotate();
+	//PendulumTrap* getType();
 	void render(RenderTarget& target);
 
 private: Vector2f position;
@@ -37,5 +39,6 @@ private: Vector2f position;
 	   void initBase(Vector2f position);
 	   void setInitialAxeRotationDegree(double initialRotationDegree);
 	   void setInitialBaseRotationDegree(double initialBaseRotationDegree);
+	   Sprite getAxe();
 };
 

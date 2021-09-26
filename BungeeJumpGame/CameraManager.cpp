@@ -136,6 +136,7 @@ void CameraManager::update(Player& player)
 {
 	//std::cout << mainCamera->getCenter().x << "," << mainCamera->getViewport().contains() << std::endl;
 	this->window->setView(*mainCamera);
+
 }
 
 // contains player movement inside this view.

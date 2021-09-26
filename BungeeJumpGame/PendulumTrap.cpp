@@ -98,6 +98,17 @@ vector<Sprite> PendulumTrap::getSprites()
 	return involvedSprites;
 }
 
+Sprite PendulumTrap::getAxe() 
+{
+	return this->axe;
+}
+
+FloatRect PendulumTrap::getGlobalBounding()
+{
+	FloatRect axeBounds = this->getAxe().getGlobalBounds();
+	return axeBounds;
+}
+
 void PendulumTrap::pendulumRotate()
 {
 	double rotationDegree = getRotationDegree();
@@ -122,6 +133,11 @@ void PendulumTrap::pendulumRotate()
 	}
 	
 }
+
+//PendulumTrap* PendulumTrap::getType() 
+//{
+//	return this;
+//}
 
 void PendulumTrap::render(RenderTarget& target)
 {

@@ -7,7 +7,7 @@ using namespace sf;
 using namespace std;
 
 
-class SpinningSawTrap : public AbstractTrap
+class SpinningSawTrap : public AbstractTrap//<SpinningSawTrap>
 {
 public:
 	SpinningSawTrap(Vector2f position,int rotationDegree);
@@ -20,6 +20,8 @@ public:
 	void sawRotate(int rotationDegree);
 	Sprite& getSprite();
 	vector<Sprite> getSprites();
+	FloatRect getGlobalBounding();
+	//SpinningSawTrap* getType();
 	void render(RenderTarget& target);
 
 private: Vector2f position;

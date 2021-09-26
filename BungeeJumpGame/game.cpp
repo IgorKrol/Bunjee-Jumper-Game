@@ -11,7 +11,6 @@ void Game::initVariables()
 	this->player = nullptr;
 	background = nullptr;
 	playerHealth = nullptr;
-
 }
 
 // first initilizer for window
@@ -20,7 +19,7 @@ void Game::initWindow()
 	videoMode.width = 800;
 	videoMode.height = 600;
 
-	this->window = new RenderWindow(videoMode, "Bunjee Game", Style::Default);
+	this->window = new RenderWindow(videoMode, "Bungee Game", Style::Default);
 	this->window->setFramerateLimit(60);
 }
 
@@ -61,6 +60,11 @@ Game::Game()
 	initView();
 	trap = new SpinningSawTrap(Vector2f(200, 200), 10);
 	pendulum = new PendulumTrap(Vector2f(400, 400), 13);
+	//if (PendulumTrap* actualCreatedTrap = dynamic_cast<PendulumTrap*>(pendulum))
+	//{
+	//	actualCreatedTrap->initInitialAxeRotationDegree(289);
+	//	actualCreatedTrap->initInitialBaseRotationDegree(0);
+	//}
 	//pendulum->initInitialAxeRotationDegree(180);
 }
 
@@ -121,8 +125,8 @@ void Game::updatePlayerMovement()
 // move player depends on key pressed
 void Game::movePlayer()
 {
-	Randomization* random = new Randomization();
-	random->randomCameraMovement(camera);
+	
+	
 	/*if (Keyboard::isKeyPressed(Keyboard::A)) {
 		camera->move(-10.f, 0.f);
 	}
@@ -232,6 +236,8 @@ void Game::render()
 {
 	window->clear();
 
+	random->randomCameraMovement(camera);
+
 	background->render(*window);
 
 	trap->render(*window);
@@ -241,6 +247,8 @@ void Game::render()
 	player->render(*window);
 
 	playerHealth->render(*window);
+	
+	random->createRandomTrapOutsideOfView(*window, camera, background, CONST_TRAP_TYPES);
 
 	window->display();
 }

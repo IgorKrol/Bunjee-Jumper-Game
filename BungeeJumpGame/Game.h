@@ -16,7 +16,7 @@
 
 
 using namespace sf;
-const std::vector<AbstractTrap*> CONST_TRAP_TYPES = {new SpinningSawTrap(Vector2f(200, 200), 10), new PendulumTrap(Vector2f(400, 400), 13)};
+const vector<string> CONST_TRAP_TYPES  = { "VT_SpinningSawTrap", "VT_PendulumTrap" };
 
 class Game
 {
@@ -37,6 +37,7 @@ private:
 	AbstractTrap* pendulum;
 	PlayerHealth* playerHealth;
 	CameraManager* camera;
+	Randomization* random = new Randomization();
 
 
 
