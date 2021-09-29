@@ -33,8 +33,6 @@ private:
 	Event ev;
 	Player* player;
 	Background* background;
-	AbstractTrap* trap;
-	AbstractTrap* pendulum;
 	PlayerHealth* playerHealth;
 	CameraManager* camera;
 	Randomization* random = new Randomization();
@@ -52,6 +50,10 @@ private:
 	void initBorders();
 
 public:
+
+	//public Variables - static
+	static vector<pair<bool, AbstractTrap*>>* traps;
+
 
 	// Ctor & Dtor
 	Game();

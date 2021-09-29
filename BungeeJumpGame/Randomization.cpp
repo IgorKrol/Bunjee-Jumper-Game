@@ -1,7 +1,8 @@
 #include "Randomization.h"
-Randomization::Randomization()
+#include "Game.h"
+Randomization::Randomization(): generatedTraps(*Game::traps)
 {
-
+	//generatedTraps = *Game::traps;
 }
 
 Randomization::~Randomization()
