@@ -17,7 +17,7 @@ private:
 public:
 	Randomization();
 	~Randomization();
-	float getRundomNumber(int lowerLimit, int upperLimit, bool intGeneration);
+	static float getRundomNumber(int lowerLimit, int upperLimit, bool intGeneration);
 	void createRandomTrapOutsideOfView(RenderTarget& target, CameraManager* view, Background* wholeMap, const vector<string> trapTypes);
 	void randomCameraMovement(CameraManager* view);
 	void setConcorrentGeneratedTrapLimit(int concorrentGeneratedTrapLimit);
