@@ -13,6 +13,8 @@ void Game::initVariables()
 	playerHealth = nullptr;
 }
 
+//Game::traps = vector<pair<bool, AbstractTrap*>>();
+
 // first initilizer for window
 void Game::initWindow()
 {
@@ -125,20 +127,20 @@ void Game::updatePlayerMovement()
 // move player depends on key pressed
 void Game::movePlayer()
 {
+	float delta = 0.5f;
 	
-	
-	/*if (Keyboard::isKeyPressed(Keyboard::A)) {
-		camera->move(-10.f, 0.f);
+	if (Keyboard::isKeyPressed(Keyboard::A)) {
+		player->move(-delta, 0.f);
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
-		camera->move(10.f, 0.f);
+		player->move(delta, 0.f);
 	}
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
-		camera->move(0.f, -10.f);
+		player->move(0.f, -delta);
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
-		camera->move(0.f, 10.f);
-	}*/
+		player->move(0.f, delta);
+	}
 
 	//if (Keyboard::isKeyPressed(Keyboard::A)) {
 	//	player->move(-1.f, 0.f);
@@ -236,9 +238,13 @@ void Game::render()
 {
 	window->clear();
 
-	random->randomCameraMovement(camera);
 
 	background->render(*window);
+
+
+	random->createRandomTrapOutsideOfView(*window, camera, background, CONST_TRAP_TYPES);
+
+	random->randomCameraMovement(camera);
 
 	trap->render(*window);
 
@@ -247,8 +253,8 @@ void Game::render()
 	player->render(*window);
 
 	playerHealth->render(*window);
-	
-	random->createRandomTrapOutsideOfView(*window, camera, background, CONST_TRAP_TYPES);
+
+
 
 	window->display();
 }
