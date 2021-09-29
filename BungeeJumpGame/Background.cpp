@@ -36,7 +36,7 @@ void Background::initCloudList()
 	Sprite* temp;
 	for (int i = 0; i < 40; i++) {
 			temp = new Sprite(TextureMap::getInstance()
-				.getTexture("Cloud_" + to_string((int)Randomization::getRundomNumber(1,21,true))));
+				.getTexture("Cloud_" + to_string((int)Randomization::getRundomNumber(1,20,true))));
 
 			float x = Randomization::getRundomNumber(200, 3800, true);
 			float y = Randomization::getRundomNumber(200, 3800, true);
