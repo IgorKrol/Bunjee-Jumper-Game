@@ -2,6 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <string>
 #include <list>
+
+
 using namespace std;
 using namespace sf;
 

@@ -23,6 +23,8 @@ void Game::initWindow()
 	this->window->setFramerateLimit(60);
 }
 
+vector<pair<bool, AbstractTrap*>>* Game::traps = new vector<pair<bool, AbstractTrap*>>;
+
 void Game::initBackground()
 {
 	background = new Background();
@@ -58,8 +60,6 @@ Game::Game()
 	initPlayer();
 	initHealthBar();
 	initView();
-	trap = new SpinningSawTrap(Vector2f(200, 200), 10);
-	pendulum = new PendulumTrap(Vector2f(400, 400), 13);
 	//if (PendulumTrap* actualCreatedTrap = dynamic_cast<PendulumTrap*>(pendulum))
 	//{
 	//	actualCreatedTrap->initInitialAxeRotationDegree(289);
@@ -72,8 +72,6 @@ Game::~Game()
 {
 	delete this->window;
 	delete this->player;
-	delete this->trap;
-	delete this->pendulum;
 }
 
 
@@ -125,20 +123,20 @@ void Game::updatePlayerMovement()
 // move player depends on key pressed
 void Game::movePlayer()
 {
+	float delta = 0.5f;
 	
-	
-	/*if (Keyboard::isKeyPressed(Keyboard::A)) {
-		camera->move(-10.f, 0.f);
+	if (Keyboard::isKeyPressed(Keyboard::A)) {
+		player->move(-delta, 0.f);
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::D)) {
-		camera->move(10.f, 0.f);
+		player->move(delta, 0.f);
 	}
 	if (Keyboard::isKeyPressed(Keyboard::W)) {
-		camera->move(0.f, -10.f);
+		player->move(0.f, -delta);
 	}
 	else if (Keyboard::isKeyPressed(Keyboard::S)) {
-		camera->move(0.f, 10.f);
-	}*/
+		player->move(0.f, delta);
+	}
 
 	//if (Keyboard::isKeyPressed(Keyboard::A)) {
 	//	player->move(-1.f, 0.f);
@@ -191,34 +189,38 @@ void Game::update()
 	dt = Clock().restart().asSeconds();
 
 	pollEvents();
-
-	if (player->checkCollider(*trap)) {
-		auto invFrames = player->getInvincibilityFrames();
-		if (!invFrames) {
-			playerHealth->lowerHealth(1);
-			std::thread t([this]() {
-				player->setInvincibilityFrames(true);
-				//invincibility frames
-				sleep(seconds(0.6));
-				player->setInvincibilityFrames(false);
-				});
-			t.detach();
+	for (auto p : *traps) {
+		auto trap = p.second;
+		//cout << "dsafa" << endl;
+		if (player->checkCollider(*trap)) {
+			auto invFrames = player->getInvincibilityFrames();
+			if (!invFrames) {
+				playerHealth->lowerHealth(1);
+				std::thread t([this]() {
+					player->setInvincibilityFrames(true);
+					//invincibility frames
+					sleep(seconds(0.6));
+					player->setInvincibilityFrames(false);
+					});
+				t.detach();
+			}
 		}
 	}
 
-	if (player->checkCollider(*pendulum)) {
-		auto invFrames = player->getInvincibilityFrames();
-		if (!invFrames) {
-			playerHealth->lowerHealth(1);
-			std::thread t([this]() {
-				player->setInvincibilityFrames(true);
-				//invincibility frames
-				sleep(seconds(0.6));
-				player->setInvincibilityFrames(false);
-				});
-			t.detach();
-		}
-	}
+
+	//if (player->checkCollider(*pendulum)) {
+	//	auto invFrames = player->getInvincibilityFrames();
+	//	if (!invFrames) {
+	//		playerHealth->lowerHealth(1);
+	//		std::thread t([this]() {
+	//			player->setInvincibilityFrames(true);
+	//			//invincibility frames
+	//			sleep(seconds(0.6));
+	//			player->setInvincibilityFrames(false);
+	//			});
+	//		t.detach();
+	//	}
+	//}
 
 	updatePlayerMovement();
 
@@ -236,19 +238,19 @@ void Game::render()
 {
 	window->clear();
 
-	random->randomCameraMovement(camera);//, window);
 
 	background->render(*window);
 
-	trap->render(*window);
 
-	pendulum->render(*window);
+	random->createRandomTrapOutsideOfView(*window, camera, background, CONST_TRAP_TYPES);
+
+	random->randomCameraMovement(camera);
 
 	player->render(*window);
 
 	playerHealth->render(*window);
-	
-	random->createRandomTrapOutsideOfView(*window, camera, background, CONST_TRAP_TYPES);
+
+
 
 	window->display();
 }

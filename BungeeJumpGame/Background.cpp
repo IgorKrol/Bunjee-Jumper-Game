@@ -1,7 +1,8 @@
 #include "Background.h"
 #include "TextureMap.h"
 #include <iostream>
-#include <random>
+//#include <random>
+#include "Randomization.h"
 
 
 
@@ -33,16 +34,16 @@ void Background::initBackImage()
 void Background::initCloudList()
 {
 	Sprite* temp;
-	srand((unsigned int)time(NULL));
-	for (int i = 0; i < 5; i++) {
+	for (int i = 0; i < 40; i++) {
 			temp = new Sprite(TextureMap::getInstance()
-				.getTexture("Cloud_" + to_string(rand()%20+1)));
+				.getTexture("Cloud_" + to_string((int)Randomization::getRundomNumber(1,20,true))));
 
-			float x = i*200 % 600;
-			float y = i*500 % 600;
+			float x = Randomization::getRundomNumber(200, 3800, true);
+			float y = Randomization::getRundomNumber(200, 3800, true);
+
 			Vector2f tempVec(x, y);
 			temp->setPosition(tempVec);
-			temp->setColor(Color(255,255,255,(rand() % 155)+100));
+			temp->setColor(Color(255,255,255,(int)Randomization::getRundomNumber(155, 255, true)));
 			cloudList.push_back(temp);
 	}
 
