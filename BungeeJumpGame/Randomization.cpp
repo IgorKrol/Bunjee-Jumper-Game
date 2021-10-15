@@ -79,26 +79,8 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 			}
 		}
 
-		//while (((viewTopLeftCorner.x < x) && (x< viewBottomRightCorner.x))&& ((viewTopLeftCorner.y < y)&& (y< viewBottomRightCorner.y))
-		//	&& ((informationAboutTraps->getLocalBounding().top < x) && (x < informationAboutTraps->getLocalBounding().height)) 
-		//	&& ((informationAboutTraps->getLocalBounding().left < y) && (y < informationAboutTraps->getLocalBounding().width)))
-		//{
-		//	std::cout << viewTopLeftCorner.x <<" "<< x << " " << viewBottomRightCorner.x <<std::endl;
-		//	std::cout << viewTopLeftCorner.y << " " << y << " " << viewBottomRightCorner.y << std::endl;
-		//	x = (int)getRundomNumber(0, mapSize.x, true);
-		//	y = (int)getRundomNumber(0, mapSize.y, true);
-		//}
-		std::cout << "aaaaaa" << std::endl;
 		AbstractTrap* generatedTrap = AbstractTrap::Create(trapTypes[i], Vector2f(x, y), 13);
 		this->framescounter = 0;
-		//AbstractTrap* generatedTrap = AbstractTrap::Create(trapTypes[i], Vector2f((int)getRundomNumber(viewBottomRightCorner.x+1, mapSize.x, true), 
-		//																		  (int)getRundomNumber(viewBottomRightCorner.y + 1, mapSize.y, true)),13);
-		//AbstractTrap* generatedTrap = AbstractTrap::Create(trapTypes[i], Vector2f((int)getRundomNumber(0, viewBottomRightCorner.x - 1, true),
-		//																		   (int)getRundomNumber(0, viewBottomRightCorner.y - 1, true)), 13);
-		/*AbstractTrap* generatedTrap = AbstractTrap::Create(trapTypes[i], Vector2f(450,
-																		  350), 13);*/
-		//std::cout << (int)getRundomNumber(viewBottomRightCorner.x + 1, mapSize.x, true) << std::endl;
-		//std::cout << (int)getRundomNumber(viewBottomRightCorner.y + 1, mapSize.y, true) << std::endl;
 
 		if (PendulumTrap* actualCreatedTrap = dynamic_cast<PendulumTrap*>(generatedTrap))
 		{
@@ -141,17 +123,11 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 		}
 		
 	}
-	
-	//if (SpinningSawTrap* actualCreatedTrap = dynamic_cast<SpinningSawTrap*>(generatedTrap))
-	//{
-
-	//}
 }
 
 
 void Randomization::randomCameraMovement(CameraManager* view)
 {
-
 	if (view->getCounterToTime() >= view->getTime())
 	{
 		view->setTime((int)getRundomNumber(180, 540, true));
@@ -184,3 +160,4 @@ int Randomization::getFramesBetweenTrapGenerations()
 {
 	return this->framesBetweenTrapGenerations;
 }
+

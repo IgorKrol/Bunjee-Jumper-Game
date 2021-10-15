@@ -236,7 +236,7 @@ void Game::render()
 {
 	window->clear();
 
-	random->randomCameraMovement(camera);
+	random->randomCameraMovement(camera);//, window);
 
 	background->render(*window);
 

@@ -139,6 +139,7 @@ void CameraManager::update(Player& player)
 
 }
 
+
 // contains player movement inside this view.
 void CameraManager::keepPlayerContained(Player& player)
 {

@@ -14,15 +14,18 @@ private:
 	int concorrentGeneratedTrapLimit = 10;
 	int framescounter = 0;
 	bool firstCreation = true;
+	Background* background;
+
 public:
 	Randomization();
 	~Randomization();
 	float getRundomNumber(int lowerLimit, int upperLimit, bool intGeneration);
 	void createRandomTrapOutsideOfView(RenderTarget& target, CameraManager* view, Background* wholeMap, const vector<string> trapTypes);
-	void randomCameraMovement(CameraManager* view);
+	void randomCameraMovement(CameraManager* view);//, RenderWindow* window);
 	void setConcorrentGeneratedTrapLimit(int concorrentGeneratedTrapLimit);
 	int getConcorrentGeneratedTrapLimit();
 	void setFramesBetweenTrapGenerations(int framesBetweenTrapGenerations);
 	int getFramesBetweenTrapGenerations();
+	//void backgroundUpdate(RenderWindow* window);
 };
 

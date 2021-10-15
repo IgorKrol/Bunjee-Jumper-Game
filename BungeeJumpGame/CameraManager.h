@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-
+#include "Background.h"
 #include "Player.h"
 
 class CameraManager
@@ -15,6 +15,7 @@ private:
 	int time=-1;
 	int counterToTime=0;
 	Vector2f movementDelta;
+	Background* background;
 
 
 public:
@@ -32,10 +33,10 @@ public:
 	int getCounterToTime();
 	Vector2f getTopLeftCorner();
 	Vector2f getBottomRightCorner();
-	void randomCameraMovement();
 	void BorderCollisionsCorrection();
 	void update(Player& player);
 	void keepPlayerContained(Player& player);
+
 
 
 };
