@@ -2,7 +2,7 @@
 #include "Game.h"
 Randomization::Randomization(): generatedTraps(*Game::traps)
 {
-	//generatedTraps = *Game::traps;
+
 }
 
 Randomization::~Randomization()
@@ -80,15 +80,6 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 			}
 		}
 
-		//while (((viewTopLeftCorner.x < x) && (x< viewBottomRightCorner.x))&& ((viewTopLeftCorner.y < y)&& (y< viewBottomRightCorner.y))
-		//	&& ((informationAboutTraps->getLocalBounding().top < x) && (x < informationAboutTraps->getLocalBounding().height)) 
-		//	&& ((informationAboutTraps->getLocalBounding().left < y) && (y < informationAboutTraps->getLocalBounding().width)))
-		//{
-		//	std::cout << viewTopLeftCorner.x <<" "<< x << " " << viewBottomRightCorner.x <<std::endl;
-		//	std::cout << viewTopLeftCorner.y << " " << y << " " << viewBottomRightCorner.y << std::endl;
-		//	x = (int)getRundomNumber(0, mapSize.x, true);
-		//	y = (int)getRundomNumber(0, mapSize.y, true);
-		//}
 		AbstractTrap* generatedTrap = AbstractTrap::Create(trapTypes[i], Vector2f(x, y), 13);
 		this->framescounter = 0;
 
@@ -105,7 +96,7 @@ void Randomization::createRandomTrapOutsideOfView(RenderTarget& target,CameraMan
 	else
 	{
 		this->framescounter = ++framescounter;
-		//std::cout << framescounter << std::endl;
+
 		if (framescounter > this->framesBetweenTrapGenerations)
 		{
 			this->framescounter = 0;
